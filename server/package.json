@@ -4,7 +4,12 @@
   "description": "",
   "main": "App.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node App.js",
+    "dev": "nodemon App.js",
+    "migrate": "knex migrate:latest",
+    "migrate:down": "knex migrate:down",
+    "migrate:rollback": "knex migrate:rollback",
+    "seed": "knex seed:run"
   },
   "author": "",
   "license": "ISC",

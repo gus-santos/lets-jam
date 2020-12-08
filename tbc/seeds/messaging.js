@@ -1,19 +1,20 @@
-const messageData = require('../seed_data/messages');
-const userData = require('../seed_data/users');
+const userData = require('../seed-data/users');
+const messageData = require('../seed-data/messages');
 
 exports.seed = function (knex) {
-  // Deletes ALL existing entries
+  // Delete all users
   return knex('users')
     .del()
     .then(function () {
-      // Inserts seed entries
-      return knex('users').insert(userData);
+        // Insert user seed entries
+        return knex('users').insert(userData);
     })
     .then(() => {
-      return knex('messages').del();
+        // Delete messages
+        return knex('messages').del();
     })
     .then(() => {
-      // Inserts seed entries
+      // Insert seed entries
       return knex('users')
         .pluck('id')
         .then((userIds) => {
@@ -22,8 +23,9 @@ exports.seed = function (knex) {
     })
     .then((userIds) => {
       const messageDataWithUserIds = messageData.map((message) => {
-        message.user_id =
-          userIds[Math.floor(Math.random() * userIds.length)];
+        message.id =
+          userIds[Math.floor(Math.random() * userIds.length)]; // [Q] What do I add here?
+          console.log(message);
         return message;
       });
       return knex('messages').insert(messageDataWithUserIds);

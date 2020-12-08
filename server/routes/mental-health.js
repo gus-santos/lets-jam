@@ -1,3 +1,4 @@
+// This is just test content
 const express = require('express');
 const User = require('../models/user');
 const router = express.Router();
@@ -8,7 +9,8 @@ router.route('/').get((req, res) => {
     .fetchAll({ withRelated: ['messages'] })
     .then((users) => {
       res.status(200).json(users);
-    });
+    })
+    .catch((err) => console.error(err));
 });
 
 // post new user
@@ -35,7 +37,8 @@ router.route('/:id').get((req, res) => {
     .fetch({ withRelated: ['messages'] })
     .then((user) => {
       res.status(200).json(user);
-    });
+    })
+    .catch((err) => console.error(err));
 });
 
 // update user
@@ -58,7 +61,8 @@ router.route('/:id').put((req, res) => {
         .then((updatedUser) => {
           res.status(200).json({ updatedUser });
         });
-    });
+    })
+    .catch((err) => console.error(err));
 });
 
 // delete user
@@ -69,7 +73,8 @@ router.route('/:id').delete((req, res) => {
       res
         .status(200)
         .json({ message: 'user has been deleted', deletedUser });
-    });
+    })
+    .catch((err) => console.error(err));
 });
 
 module.exports = router;
