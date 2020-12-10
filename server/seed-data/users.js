@@ -46,7 +46,7 @@
       "about": "",
       "postalCode": "",
       "favouriteStudio": "",
-      lookingFor: JSON.stringify(["guitar", "keys", "vocals", "bass", "drums", "accordion", "turntable", "lap steel", "pedal steel", "harp", "harmonica"])
+      "lookingFor": JSON.stringify(["guitar", "keys", "vocals", "bass", "drums", "accordion", "turntable", "lap steel", "pedal steel", "harp", "harmonica"])
     }
 */
 

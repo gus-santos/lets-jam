@@ -2,16 +2,19 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 
+// GET all users [TODO: filter]
 router
   .route('/')
   .get((req, res) => {
     User.where(req.query)
-      .fetchAll({ withRelated: ['posts'] })
+      .fetchAll()
       .then((users) => {
         res.status(200).json(users);
       });
   })
-  .post((req, res) => {
+
+  // POST new user
+  .post((req, res) => { // OK tested
     new User({
       contactInfo: JSON.stringify(req.body.contactInfo),
       screenName: req.body.screenName,
@@ -32,16 +35,19 @@ router
     });
   });
 
+// GET user by id
 router
   .route('/:id')
-  .get((req, res) => {
+  .get((req, res) => { // OK tested
     User.where(req.params)
-    .fetch({ withRelated: ['posts'] })
+    .fetch()
     .then((user) => {
       res.status(200).json(user);
     });
   })
-  .put((req, res) => {
+
+  // PUT update user by user.id
+  .put((req, res) => { // OK tested
     User.where('id', req.params.id)
       .fetch()
       .then((user) => {
@@ -76,14 +82,17 @@ router
       });
   })
   
-  // Delete user
-  .delete((req, res) => {
+  // DELETE user by user.id
+  .delete((req, res) => { // OK tested
     User.where('id', req.params.id)
       .destroy()
-      .then((deletedUser) => {
+      .then(() => {
         res
           .status(200)
-          .json({ message: 'User has been deleted ', deletedUser });
+          .json({ message: 'User has been deleted' });
+      })
+      .catch(() => {
+        res.status(404).json({ error: 'User has not been found. Please provide a valid id' });
       });
   });
 
