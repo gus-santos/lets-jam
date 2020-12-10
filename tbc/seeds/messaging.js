@@ -17,14 +17,14 @@ exports.seed = function (knex) {
       // Insert seed entries
       return knex('users')
         .pluck('id')
-        .then((userIds) => {
-          return userIds;
+        .then((senders) => {
+          return senders;
         });
     })
-    .then((userIds) => {
+    .then((senders) => {
       const messageDataWithUserIds = messageData.map((message) => {
         message.id =
-          userIds[Math.floor(Math.random() * userIds.length)]; // [Q] What do I add here?
+          senders[Math.floor(Math.random() * senders.length)];
           console.log(message);
         return message;
       });

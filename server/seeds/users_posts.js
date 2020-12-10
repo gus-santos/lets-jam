@@ -1,30 +1,30 @@
-// [Q] Do I actually need this file or can I throw this in with the messaging?
-const postData = require("../seed-data/posts");
-const userData = require("../seed-data/users");
+// [Q] Can I throw in messaging and instruments? YUP
+const postData = require('../seed-data/posts');
+const userData = require('../seed-data/users');
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex("users")
+  return knex('users')
     .del()
     .then(function() {
       // Inserts seed entries
-      return knex("users").insert(userData);
+      return knex('users').insert(userData);
     })
     .then(() => {
-      return knex("posts").del();
+      return knex('posts').del();
     })
     .then(() => {
       // Inserts seed entries
-      return knex("users")
-        .pluck("id")
-        .then(userIds => {
-          return userIds;
+      return knex('users')
+        .pluck('id')
+        .then(authors => {
+          return authors;
         });
     })
-    .then(() => { // [Q] Is this right?
-      const postDataItem = postData.map(post => {
+    .then((authors) => { // [Q] Write author IDs in JSON
+      const postDataItem = postData.map((post) => {
         return post;
       });
-      return knex("posts").insert(postDataItem);
+      return knex('posts').insert(postDataItem);
     });
 };

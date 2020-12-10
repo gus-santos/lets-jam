@@ -1,20 +1,28 @@
 // Libraries
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 5000;
+const path = require('path');
+const cors = require('cors');
 
-// Main routes
-const visitorRoute = require('./routes/visitor');
-const mentalHealthRoute = require('./routes/mental-health');
-const postsRoute = require('./routes/posts');
-// const messagingRoute = require('./routes/messaging');
+require('dotenv').config();
+const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(express.json());
+app.use(cors());
 
-app.use('/', visitorRoute);
+// Main routes
+const mentalHealthRoute = require('./routes/mental-health');
+const userRoute = require('./routes/user');
+const postsRoute = require('./routes/post');
+// const messagingRoute = require('./routes/messaging');
+// const instrumentsRoute = require('./routes/instruments');
+
+
+// app.use('/');
 app.use('/mental-health', mentalHealthRoute);
-app.use('/:id', postsRoute); // Let's hope this works without the need for a userRoute (OPTIONAL if id === loggedUserId show own profile with edit options)
+app.use('/user', userRoute);
+app.use('/posts', postsRoute);
 // app.use('/messaging', messagingRoute);
 
 app.listen(PORT, () => {

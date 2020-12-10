@@ -4,7 +4,7 @@ const User = bookshelf.model('User', {
   tableName: 'users',
   posts: function () {
     return this.hasMany('Post');
-  }, // [Q] Can I add all of this here?
+  },
   messages: function () {
     return this.hasMany('Message');
   },
