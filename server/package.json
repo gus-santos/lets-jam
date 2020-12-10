@@ -2,24 +2,16 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "App.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node App.js",
-    "dev": "nodemon App.js",
-    "migrate": "knex migrate:latest",
-    "migrate:down": "knex migrate:down",
-    "migrate:rollback": "knex migrate:rollback",
-    "seed": "knex seed:run"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bookshelf": "^1.2.0",
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "knex": "^0.21.12",
-    "mysql": "^2.18.1",
     "react-router-dom": "^5.2.0"
   }
 }
