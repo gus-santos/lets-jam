@@ -52,9 +52,9 @@ router
     if (req.body.author) {
       User.where('id', req.body.author)
         .fetch()
-        .then((user) => console.log('User found'))
-        .catch((user) => {
-          res.status(404).json({ error: 'User not found'});
+        .then(() => console.log('User found'))
+        .catch(() => {
+          res.status(404).json({ error: 'User not found. Please provide valid id'});
         });
     }
 
@@ -79,7 +79,10 @@ router
     .then((deletedPost) => {
       res
         .status(200)
-        .json({ message: 'Post has been deleted ', deletedPost });
+        .json({ message: `Post has been deleted\n ${deletedPost}` });
+    })
+    .catch(() => {
+      res.status(404).json({ error: 'Post has not been found. Please provide valid id'});
     });
 });
 
