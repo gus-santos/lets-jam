@@ -2,8 +2,46 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 
-// Update user
-router.route('/:id').put((req, res) => {
+router
+  .route('/')
+  .get((req, res) => {
+    User.where(req.query)
+      .fetchAll({ withRelated: ['posts'] })
+      .then((users) => {
+        res.status(200).json(users);
+      });
+  })
+  .post((req, res) => {
+    new User({
+      contactInfo: JSON.stringify(req.body.contactInfo),
+      screenName: req.body.screenName,
+      type: req.body.type,
+      healthSettings: req.body.healthSettings,
+      about: req.body.about,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      postalCode: req.body.postalCode,
+      favouriteStudio: req.body.favouriteStudio,
+      lookingFor: JSON.stringify(req.body.lookingFor),
+      skills: JSON.stringify(req.body.skills),
+      instruments: JSON.stringify(req.body.instruments)
+    })
+    .save()
+    .then((newUser) => {
+      res.status(201).json({ newUser });
+    });
+  });
+
+router
+  .route('/:id')
+  .get((req, res) => {
+    User.where(req.params)
+    .fetch({ withRelated: ['posts'] })
+    .then((user) => {
+      res.status(200).json(user);
+    });
+  })
+  .put((req, res) => {
     User.where('id', req.params.id)
       .fetch()
       .then((user) => {
@@ -36,15 +74,17 @@ router.route('/:id').put((req, res) => {
             res.status(200).json({ updatedUser });
           });
       });
-  });
+  })
   
   // Delete user
-  router.route('/:id').delete((req, res) => {
+  .delete((req, res) => {
     User.where('id', req.params.id)
       .destroy()
       .then((deletedUser) => {
         res
           .status(200)
-          .json({ message: 'User has been deleted', deletedUser });
+          .json({ message: 'User has been deleted ', deletedUser });
       });
   });
+
+  module.exports = router;
