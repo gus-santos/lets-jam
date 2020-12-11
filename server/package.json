@@ -11,7 +11,7 @@
     "migrate:rollback": "knex migrate:rollback",
     "seed": "knex seed:run"
   },
-  "author": "",
+  "author": "Gus Santos",
   "license": "ISC",
   "dependencies": {
     "bookshelf": "^1.2.0",
