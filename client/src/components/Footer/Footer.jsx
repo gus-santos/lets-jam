@@ -15,7 +15,7 @@ const Footer = (props) => {
                 </li>
             </ul>
 
-            <p className="footer_copyright">© 2020 G. Santos</p>
+            <p className="footer__copyright">© 2020 G. Santos</p>
         </div>
     );
 };
