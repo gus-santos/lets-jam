@@ -10,7 +10,7 @@
         "facebook": "http://facebook.com/user",
         "website": "http://mydomain.com"
       }),
-      "screenName": "",
+      "userName": "",
       "type": "artist",
       "healthSettings": true false,
       "about": "",
@@ -40,7 +40,7 @@
         "facebook": "http://facebook.com/user",
         "website": "http://mydomain.com"
       }),
-      "screenName": "",
+      "userName": "",
       "type": "band",
       "healthSettings": true false,
       "about": "",
@@ -60,7 +60,7 @@ module.exports = [
         "facebook": "http://facebook.com/test",
         "website": "http://yeah.com/test"
       }),
-      "screenName": "DaOne",
+      "userName": "DaOne",
       "type": "artist",
       "healthSettings": true,
       "about": "I'm a 37-year-old guitarist who's been in town for a couple years",
@@ -83,7 +83,7 @@ module.exports = [
         "bandcamp": "http://bandcamp.com/tes2t",
         "facebook": "http://facebook.com/test2"
       }),
-      "screenName": "Da_Second_Band",
+      "userName": "Da_Second_Band",
       "type": "band",
       "healthSettings": false,
       "about": "We're a famous band and make some crazy cash",
@@ -99,7 +99,7 @@ module.exports = [
         "bandcamp": "http://bandcamp.com/tes3t",
         "facebook": "http://facebook.com/t3est"
       }),
-      "screenName": "DaThird",
+      "userName": "DaThird",
       "type": "artist",
       "healthSettings": false,
       "about": "I'm the best",
@@ -121,7 +121,7 @@ module.exports = [
         "facebook": "http://facebook.com/t4est",
         "website": "http://irule.com/t4est"
       }),
-      "screenName": "Da-4",
+      "userName": "Da-4",
       "type": "artist",
       "healthSettings": true,
       "about": "I'm me",
@@ -143,7 +143,7 @@ module.exports = [
         "bandcamp": "http://bandcamp.com/te5st",
         "facebook": "http://facebook.com/t5est"
       }),
-      "screenName": "The_Jacksons_Five",
+      "userName": "The_Jacksons_Five",
       "type": "band",
       "healthSettings": true,
       "about": "We miss Michael",

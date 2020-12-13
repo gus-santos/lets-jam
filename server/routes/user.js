@@ -17,7 +17,7 @@ router
   .post((req, res) => { // OK tested
     new User({
       contactInfo: JSON.stringify(req.body.contactInfo),
-      screenName: req.body.screenName,
+      userName: req.body.userName,
       type: req.body.type,
       healthSettings: req.body.healthSettings,
       about: req.body.about,
@@ -43,6 +43,7 @@ router
     .fetch()
     .then((user) => {
       res.status(200).json(user);
+      console.log("User was found");
     });
   })
 
@@ -56,7 +57,7 @@ router
             contactInfo: JSON.stringify(req.body.contactInfo)
               ? JSON.stringify(req.body.contactInfo)
               : user.contactInfo,
-            screenName: req.body.screenName ? req.body.screenName : user.screenName,
+            userName: req.body.userName ? req.body.userName : user.userName,
             type: req.body.type ? req.body.type : user.type,
             healthSettings: req.body.healthSettings
               ? req.body.healthSettings
