@@ -1,0 +1,38 @@
+.post {
+    /*border: none;
+    border-radius: 0.375rem;
+    box-shadow: 0.0625rem 0.0625rem 0.1875rem #66666666;*/
+
+    &__header {
+        @extend %flex;
+    }
+
+    &__avatar {
+        width: 5rem;
+    }
+
+    &__name-wrapper {
+        @extend %flex;
+        justify-content: space-between;
+    }
+
+    &__user-name {
+
+        &--link {
+
+        }
+    }
+
+    &__looking-for {
+
+    }
+
+    &__date {
+
+    }
+
+    &__content {
+        @extend .post;
+
+    }
+}
