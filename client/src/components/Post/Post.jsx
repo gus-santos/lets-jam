@@ -14,7 +14,7 @@ import React from 'react';
 const Post = (props) => {
     return (
         <article className="post">
-            <div className="post__header">
+            <div className="post__nav">
                 <img
                     src={`../assets/avatars/${props.id}.jpg`}
                     alt="User avatar"
@@ -42,23 +42,5 @@ const Post = (props) => {
         </article>
     );
 };
-
-/* This code is for the "lookingFor" thing. Maybe I should make it a function?
-
-{lookingFor.length ? (
-          <ul>
-            {lookingFor.map((warehouse) => (
-              <li key={warehouse.id}>{warehouse.name}</li>
-            ))}
-          </ul>
-        ) : (
-          <DonutSpinner />
-        )}
-{(props.type === "band")
-    ? ()
-    : (<span className="post__looking-for">{`&#8212; looking for ${props.lookingFor}`}</span>)
-}
-
-*/
 
 export default Post;

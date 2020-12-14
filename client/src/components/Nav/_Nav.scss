@@ -1,0 +1,15 @@
+.nav {
+
+    &__list {
+        @extend %flex;
+        justify-content: space-evenly;
+    }
+
+    &__item {
+
+    }
+
+    &__link {
+
+    }
+}
