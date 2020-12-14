@@ -1,0 +1,19 @@
+.menu {
+
+    &__link-wrapper {
+        @extend %flex;
+        flex-direction: column;
+    }
+
+    &__list-item {
+
+    }
+
+    &__link {
+
+    }
+
+    &__copyright {
+        
+    }
+}

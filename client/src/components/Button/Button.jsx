@@ -1,3 +1,9 @@
+/* <Button
+        type={this.state.type}
+        value=""
+    />
+*/
+
 import React from 'react';
 
 const Button = (props) => {

@@ -1,11 +1,29 @@
-.post__header, .post__name-wrapper {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-.post__header, .post__name-wrapper {
+body {
+  margin: 0;
+  padding: 0;
+  color: #323232;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.menu__link-wrapper, .nav__list, .post__nav, .post__name-wrapper {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -31,6 +49,19 @@
 .button--cancel {
   background-color: #FFFFFF;
   color: #323232;
+}
+
+.menu__link-wrapper {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.nav__list {
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .post, .post__content {

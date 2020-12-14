@@ -1,3 +1,9 @@
+/* <Button
+        type={this.state.type}
+        value=""
+    />
+*/
+
 import React from 'react';
 
 const Button = (props) => {
@@ -11,6 +17,8 @@ const Button = (props) => {
 };
 
 export default Button;
+
+// 
 
 /* <Post
         id={this.state.id}
@@ -28,7 +36,7 @@ import React from 'react';
 const Post = (props) => {
     return (
         <article className="post">
-            <div className="post__header">
+            <div className="post__nav">
                 <img
                     src={`../assets/avatars/${props.id}.jpg`}
                     alt="User avatar"
@@ -57,20 +65,25 @@ const Post = (props) => {
     );
 };
 
+export default Post;
+
 /* This code is for the "lookingFor" thing. Maybe I should make it a function?
 
-        {lookingFor.length ? (
+{lookingFor.length ? (
           <ul>
-            {lookingFor.map((skill) => (
-              <li key={skill.id}>{skill.name}</li>
+            {lookingFor.map((warehouse) => (
+              <li key={warehouse.id}>{warehouse.name}</li>
             ))}
           </ul>
         ) : (
           <DonutSpinner />
         )}
+}
 */
 
-export default Post;
+// 
+
+/* <Feed /> */
 
 import React from 'react';
 import Post from '../Post/Post';
@@ -98,4 +111,70 @@ const Feed = (props) => {
 };
 
 export default Feed;
+
+//
+
+/* <Menu /> */
+
+import React from 'react';
+
+const Menu = (props) => {
+    return (
+        <div className="menu">
+            <ul className="menu__link-wrapper">
+                <li className="menu__item">
+                    <a href="/settings" className="menu__link">Settings</a>
+                </li>
+                <li className="menu__item">
+                    <a href="/faq" className="menu__link">FAQ</a>
+                </li>
+                <li className="menu__item">
+                    <a href="/about" className="menu__link">About</a>
+                </li>
+                <li className="menu__item">
+                    <a href="/contact" className="menu__link">Contact</a>
+                </li>
+            </ul>
+
+            <p className="menu__copyright">&copy; 2020 G. Santos</p>
+        </div>
+    );
+};
+
+export default Menu;
+
+//
+
+/* <Nav /> */
+
+import React from 'react';
+import Menu from '../Menu/Menu';
+
+const Nav = (props) => {
+    return (
+        <div className="nav">
+            <ul className="nav__list">
+                <li className="nav__item">
+                    <a href="/" className="nav__link">Feed</a>
+                </li>
+                <li className="nav__item">
+                    <a href="/search" className="nav__link">Search</a>
+                </li>
+                <li className="nav__item">
+                    <a href="/faq" className="nav__link">Post</a>
+                </li>
+                <li className="nav__item">
+                    <a href={`/user/${props.id}`} className="nav__link">My profile</a>
+                </li>
+                <li className="nav__item">
+                    <Menu />
+                </li>
+            </ul>
+        </div>
+    );
+};
+
+export default Nav;
+
+//
 
