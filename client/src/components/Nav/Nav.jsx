@@ -19,7 +19,7 @@ const Nav = (props) => {
                 <li className="nav__item">
                     <a href={`/user/${props.id}`} className="nav__link">My profile</a>
                 </li>
-                <li className="nav__item">
+                <li className="nav__item nav__item--menu">
                     <Menu />
                 </li>
             </ul>
