@@ -12,6 +12,7 @@ const Button = (props) => {
             type="button"
             className={`button button--${props.type}`}
             value={props.value}
+            onClick={props.onClick}
         />
     );
 };

@@ -30,7 +30,7 @@ li {
   display: flex;
 }
 
-.button, .button--submit, .button--cancel, .button--back, .button--like, .button--comment {
+.button, .button--submit, .button--cancel, .button--reset, .button--back, .button--like, .button--comment {
   padding: 0.5rem 1.5rem;
   text-transform: uppercase;
   font-size: 0.75rem;
@@ -46,9 +46,21 @@ li {
   color: #FFFFFF;
 }
 
-.button--cancel {
+.button--cancel, .button--reset {
   background-color: #FFFFFF;
   color: #323232;
+}
+
+.form__input {
+  display: block;
+}
+
+.form__input {
+  display: block;
+}
+
+.form__input {
+  display: block;
 }
 
 .menu__link-wrapper {

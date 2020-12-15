@@ -16,7 +16,13 @@ router
   // POST new user
   .post((req, res) => { // OK tested
     new User({
-      contactInfo: JSON.stringify(req.body.contactInfo),
+      contactInfo: JSON.stringify({
+        email: req.body.email,
+        phone: req.body.phone,
+        soundcloud: req.body.soundcloud,
+        bandcamp: req.body.bandcamp,
+        facebook: req.body.facebook,
+        website: req.body.website}),
       userName: req.body.userName,
       type: req.body.type,
       healthSettings: req.body.healthSettings,

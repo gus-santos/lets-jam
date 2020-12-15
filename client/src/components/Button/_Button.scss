@@ -19,6 +19,10 @@
         color: $darkest;
     }
 
+    &--reset {
+        @extend .button--cancel;
+    }
+
     &--back {
         @extend .button;
 
