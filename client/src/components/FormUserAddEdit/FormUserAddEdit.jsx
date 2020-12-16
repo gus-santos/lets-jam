@@ -61,7 +61,7 @@ class FormUserAddEdit extends React.Component {
                     <input
                         type="text"
                         name="email"
-                        defaultValue={this.state.data.contactInfo.email}
+                        defaultValue={this.state.contactInfo.email}
                         onChange={this.handleChange}
                     />
                 </label>
