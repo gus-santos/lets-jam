@@ -22,7 +22,8 @@ router
         soundcloud: req.body.soundcloud,
         bandcamp: req.body.bandcamp,
         facebook: req.body.facebook,
-        website: req.body.website}),
+        website: req.body.website
+      }),
       userName: req.body.userName,
       type: req.body.type,
       healthSettings: req.body.healthSettings,

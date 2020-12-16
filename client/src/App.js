@@ -2,7 +2,7 @@
 
 import Nav from './components/Nav/Nav';
 import Feed from './components/Feed/Feed';
-import FormAddEdit from './components/FormAddEdit/FormAddEdit';
+import FormUserAddEdit from './components/FormUserAddEdit/FormUserAddEdit';
 
 import './styles/App.css';
 
@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Nav />
       <Feed />
-      <FormAddEdit />
+      <FormUserAddEdit />
     </div>
   );
 }
