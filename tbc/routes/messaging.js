@@ -6,7 +6,7 @@ const User = require('../models/user');
 // Get all messages
 router.route('/').get((req, res) => {
   Message.where(req.query)
-    .fetchAll({ withRelated: ['user'] }) // [Q] Ideally, combine sender and addressee
+    .fetchAll({ withRelated: ['user'] }) // [Q] Ideally, combine sender and recipient
     .then((messages) => {
       res.status(200).json({ messages });
     });
@@ -23,7 +23,7 @@ router.route('/').post((req, res) => {
 
   new Message({
     sender: req.body.sender,
-    addressee: req.body.addressee,
+    recipient: req.body.recipient,
     content: req.body.content
   })
     .save()

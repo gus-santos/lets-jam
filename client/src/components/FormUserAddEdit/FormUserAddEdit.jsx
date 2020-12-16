@@ -5,7 +5,7 @@ import Button from '../Button/Button';
 
 
 class FormUserAddEdit extends React.Component {
-
+    
     constructor(props) {
         super(props);
 
@@ -20,7 +20,7 @@ class FormUserAddEdit extends React.Component {
                 lastName: "",
                 postalCode: "",
                 favouriteStudio: "",
-                skills: [],
+                skills: {},
                 instruments: [],
                 lookingFor: ""
             }
@@ -37,11 +37,8 @@ class FormUserAddEdit extends React.Component {
                 this.setState({
                     data: response.data
                 });
-                console.log(this.state);
-            })
+            });
     }
-
-    componentDidMount
 
     handleChange(event) {
         this.setState({
@@ -51,11 +48,9 @@ class FormUserAddEdit extends React.Component {
     }
 
     handleSubmit(event) {
-        console.log(this.state);
         axios
-            .post('http://localhost:5000/user/', this.state)
-            .then()
-            .catch()
+            .post('http://localhost:5000/user/', this.state.data)
+            .then(console.log('User has been added'))
     }
 
     render() {
@@ -65,7 +60,7 @@ class FormUserAddEdit extends React.Component {
                     E-mail:&nbsp;
                     <input
                         type="text"
-                        name="email" // [Q] Or contactinfo-email? contactInfo.email?
+                        name="email"
                         defaultValue={this.state.data.contactInfo.email}
                         onChange={this.handleChange}
                     />
