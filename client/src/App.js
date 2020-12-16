@@ -2,7 +2,7 @@
 
 import Nav from './components/Nav/Nav';
 import Feed from './components/Feed/Feed';
-import FormUserAddEdit from './components/FormUserAddEdit/FormUserAddEdit';
+import NuForm from './components/NuForm/NuForm';
 
 import './styles/App.css';
 
@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <Nav />
       <Feed />
-      <FormUserAddEdit id={5}/>
+      <NuForm />
     </div>
   );
 }
