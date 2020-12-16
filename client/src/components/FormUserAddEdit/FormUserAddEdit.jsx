@@ -4,27 +4,44 @@ import axios from 'axios';
 import Button from '../Button/Button';
 
 
-class FormAddEdit extends React.Component {
+class FormUserAddEdit extends React.Component {
+
     constructor(props) {
         super(props);
 
         this.state = {
-            contactInfo: {email: "", phone: "", soundcloud: "", bandcamp: "", facebook: "", website: ""},
-            userName: "",
-            type: "",
-            healthSettings: 0,
-            about: "",
-            firstName: "",
-            lastName: "",
-            postalCode: "",
-            favouriteStudio: "",
-            skills: [],
-            instruments: [],
-            lookingFor: ""
+            data: {
+                contactInfo: {email: "", phone: "", soundcloud: "", bandcamp: "", facebook: "", website: ""},
+                userName: "",
+                type: "",
+                healthSettings: 0,
+                about: "",
+                firstName: "",
+                lastName: "",
+                postalCode: "",
+                favouriteStudio: "",
+                skills: [],
+                instruments: [],
+                lookingFor: ""
+            }
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+
+    componentDidMount() {
+        axios
+            .get(`http://localhost:5000/user/1`)
+            .then((response) => {
+                this.setState({
+                    data: response.data
+                });
+                console.log(this.state);
+            })
+    }
+
+    componentDidMount
 
     handleChange(event) {
         this.setState({
@@ -49,7 +66,7 @@ class FormAddEdit extends React.Component {
                     <input
                         type="text"
                         name="email" // [Q] Or contactinfo-email? contactInfo.email?
-                        defaultValue={this.state.contactInfo.email}
+                        defaultValue={this.state.data.contactInfo.email}
                         onChange={this.handleChange}
                     />
                 </label>
@@ -59,7 +76,7 @@ class FormAddEdit extends React.Component {
                         type="text"
                         name="phone"
                         autoComplete="off"
-                        defaultValue={this.state.contactInfo.phone}
+                        defaultValue={this.state.data.contactInfo.phone}
                         onChange={this.handleChange} // [Q] Can I add the existing validation here, too?
                     />
                 </label>
@@ -68,7 +85,7 @@ class FormAddEdit extends React.Component {
                     <input
                         type="text"
                         name="soundcloud"
-                        defaultValue={this.state.contactInfo.soundcloud}
+                        defaultValue={this.state.data.contactInfo.soundcloud}
                         onChange={this.handleChange}
                     />
                 </label>
@@ -77,7 +94,7 @@ class FormAddEdit extends React.Component {
                     <input
                         type="text"
                         name="bandcamp"
-                        defaultValue={this.state.contactInfo.bandcamp}
+                        defaultValue={this.state.data.contactInfo.bandcamp}
                         onChange={this.handleChange}
                     />
                 </label>
@@ -86,7 +103,7 @@ class FormAddEdit extends React.Component {
                     <input
                         type="text"
                         name="facebook"
-                        defaultValue={this.state.contactInfo.facebook}
+                        defaultValue={this.state.data.contactInfo.facebook}
                         onChange={this.handleChange}
                     />
                 </label>
@@ -95,7 +112,7 @@ class FormAddEdit extends React.Component {
                     <input
                         type="text"
                         name="website"
-                        defaultValue={this.state.contactInfo.website}
+                        defaultValue={this.state.data.contactInfo.website}
                         onChange={this.handleChange}
                     />
                 </label>
@@ -104,7 +121,7 @@ class FormAddEdit extends React.Component {
                     <input
                         type="text"
                         name="userName" // [Q] How can I prevent users from using anything other than lowercase and underscore? Ties in with other question
-                        defaultValue={this.state.userName}
+                        defaultValue={this.state.data.userName}
                         onChange={this.handleChange}
                     />
                 </label>
@@ -113,7 +130,7 @@ class FormAddEdit extends React.Component {
                     <input
                         type="text"
                         name="type"
-                        defaultValue={this.state.type}
+                        defaultValue={this.state.data.type}
                         onChange={this.handleChange}
                     />
                 </label>
@@ -122,7 +139,7 @@ class FormAddEdit extends React.Component {
                     <input
                         type="checkbox"
                         name="healthSettings"
-                        value="1" // [Q] This only works once
+                        value="1" // [Q] This only works once, so the user must make up their mind! (jk I mean to fix it)
                         onChange={this.handleChange}
                     />
                 </label>
@@ -131,7 +148,7 @@ class FormAddEdit extends React.Component {
                     <input
                         type="text"
                         name="about"
-                        defaultValue={this.state.about}
+                        defaultValue={this.state.data.about}
                         onChange={this.handleChange}
                     />
                 </label>
@@ -140,7 +157,7 @@ class FormAddEdit extends React.Component {
                     <input
                         type="text"
                         name="firstName"
-                        defaultValue={this.state.firstName}
+                        defaultValue={this.state.data.firstName}
                         onChange={this.handleChange}
                     />
                 </label>
@@ -149,7 +166,7 @@ class FormAddEdit extends React.Component {
                     <input
                         type="text"
                         name="lastName"
-                        defaultValue={this.state.lastName}
+                        defaultValue={this.state.data.lastName}
                         onChange={this.handleChange}
                     />
                 </label>
@@ -158,7 +175,7 @@ class FormAddEdit extends React.Component {
                     <input
                         type="text"
                         name="postalCode"
-                        defaultValue={this.state.postalCode}
+                        defaultValue={this.state.data.postalCode}
                         onChange={this.handleChange}
                     />
                 </label>
@@ -167,7 +184,7 @@ class FormAddEdit extends React.Component {
                     <input
                         type="text"
                         name="favouriteStudio"
-                        defaultValue={this.state.favouriteStudio}
+                        defaultValue={this.state.data.favouriteStudio}
                         onChange={this.handleChange}
                     />
                 </label>
@@ -176,7 +193,7 @@ class FormAddEdit extends React.Component {
                     <input
                         type="text"
                         name="skills"
-                        defaultValue={this.state.skills}
+                        defaultValue={this.state.data.skills}
                         onChange={this.handleChange}
                     />
                 </label>
@@ -185,7 +202,7 @@ class FormAddEdit extends React.Component {
                     <input
                         type="text"
                         name="instruments"
-                        defaultValue={this.state.instruments}
+                        defaultValue={this.state.data.instruments}
                         onChange={this.handleChange}
                     />
                 </label>
@@ -194,7 +211,7 @@ class FormAddEdit extends React.Component {
                     <input
                         type="text"
                         name="lookingFor"
-                        defaultValue={this.state.lookingFor}
+                        defaultValue={this.state.data.lookingFor}
                         onChange={this.handleChange}
                     />
                 </label>
@@ -212,7 +229,7 @@ class FormAddEdit extends React.Component {
     }
 };
 
-export default FormAddEdit;
+export default FormUserAddEdit;
 
 /*
 
@@ -393,7 +410,7 @@ import axios from 'axios';
 import Button from '../Button/Button';
 
 
-class FormAddEdit extends React.Component {
+class FormUserAddEdit extends React.Component {
     const [state, setState] = React.useState({
         contactInfo: {email: "", phone: "", soundcloud: "", bandcamp: "", facebook: "", website: ""},
         userName: "",
@@ -583,7 +600,7 @@ class FormAddEdit extends React.Component {
     );
 };
 
-export default FormAddEdit;
+export default FormUserAddEdit;
 
 
                 <Button
@@ -630,7 +647,7 @@ import axios from 'axios';
 import Button from '../Button/Button';
 
 
-class FormAddEdit extends React.Component {
+class FormUserAddEdit extends React.Component {
     const [state, setState] = React.useState({
         contactInfo: {email: "", phone: "", soundcloud: "", bandcamp: "", facebook: "", website: ""},
         userName: "",
