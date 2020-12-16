@@ -10,7 +10,7 @@ exports.up = (knex) => {
       .onUpdate('CASCADE')
       .onDelete('CASCADE');
       table
-      .integer('addressee')
+      .integer('recipient')
       .unsigned()
       .notNullable()
       .references('id')
@@ -18,7 +18,7 @@ exports.up = (knex) => {
       .onUpdate('CASCADE')
       .onDelete('CASCADE');
       table.text('content').notNullable();
-      // [Q] Maybe do chatId so that connecting sender and addressee is simpler? EVENTUALLY, AN INDEXING TABLE CAN BE A GOOD IDEA
+      // [Q] Maybe do chatId so that connecting sender and recipient is simpler? EVENTUALLY, AN INDEXING TABLE CAN BE A GOOD IDEA
       table.timestamp('updatedAt').defaultTo(knex.fn.now());
     });
   };
