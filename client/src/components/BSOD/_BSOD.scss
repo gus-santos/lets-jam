@@ -1,0 +1,25 @@
+.bsod {
+    height: 100vh;
+    width: 100vw;
+    padding: 10% 30%;
+    display: inline;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #0012A3;
+
+    &__title {
+        height: 1.5rem;
+        width: 7.5rem;
+        margin: 0 auto;
+        font-size: 1.25rem;
+        background-color: lightgray;
+        display: block;
+        color: #0012A3;
+        text-align: center;
+    }
+
+    &__text, &__item {
+        font-size: 1rem;
+    }
+}
