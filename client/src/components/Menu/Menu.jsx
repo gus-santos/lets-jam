@@ -4,7 +4,7 @@ import React from 'react';
 
 const Menu = (props) => {
     return (
-        <div className="menu">
+        <div className="menu window">
             <ul className="menu__link-wrapper">
                 <li className="menu__item">
                     <a href="/settings" className="menu__link">Settings</a>
@@ -20,7 +20,8 @@ const Menu = (props) => {
                 </li>
             </ul>
 
-            <p className="menu__copyright">&copy; 2020 G. Santos</p>
+            <p className="nav__footer">&copy; 2020 G. Santos</p>
+            <p className="nav__footer">Site best viewed in <a href="http://internetexplorer.com/">Microsoft Internet Explorer</a> in 800x600 resolution</p>
         </div>
     );
 };

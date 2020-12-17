@@ -1,0 +1,18 @@
+.user-add-edit {
+    padding: 1.5rem 0;
+
+    & input, & textarea {
+        width: 40vw;
+    }
+
+    & fieldset {
+        width: 45vw;
+        margin: 0 auto;
+    }
+
+    &__button-wrapper {
+        @extend %flex;
+        padding: 1rem;
+        justify-content: center;
+    }
+}

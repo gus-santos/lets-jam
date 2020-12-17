@@ -183,170 +183,174 @@ class UserAddEdit extends React.Component {
 
     render() {
         return (
-            <form>
-                <label className="form__input">
-                    E-mail:&nbsp;
-                    <input
-                        type="text"
-                        name="email"
-                        defaultValue={this.state.contactInfo.email}
-                        onChange={this.updateEmail}
-                    />
-                </label>
-                <label className="form__input">
-                    Phone:&nbsp;
-                    <input
-                        type="text"
-                        name="phone"
-                        // autoComplete="off"
-                        defaultValue={this.state.contactInfo.phone}
-                        onChange={this.updatePhone} // [Q] Can I add the existing validation here, too?
-                    />
-                </label>
-                <label className="form__input">
-                    SoundCloud:&nbsp;
-                    <input
-                        type="text"
-                        name="soundcloud"
-                        defaultValue={this.state.contactInfo.soundcloud}
-                        onChange={this.updateSoundcloud}
-                    />
-                </label>
-                <label className="form__input">
-                    Bandcamp:&nbsp;
-                    <input
-                        type="text"
-                        name="bandcamp"
-                        defaultValue={this.state.contactInfo.bandcamp}
-                        onChange={this.updateBandcamp}
-                    />
-                </label>
-                <label className="form__input">
-                    Facebook:&nbsp;
-                    <input
-                        type="text"
-                        name="facebook"
-                        defaultValue={this.state.contactInfo.facebook}
-                        onChange={this.updateFacebook}
-                    />
-                </label>
-                <label className="form__input">
-                    Website:&nbsp;
-                    <input
-                        type="text"
-                        name="website"
-                        defaultValue={this.state.contactInfo.website}
-                        onChange={this.updateWebsite}
-                    />
-                </label>
-                <label className="form__input">
-                    User name:&nbsp;
-                    <input
-                        type="text"
-                        name="screenName" // [Q] How can I prevent users from using anything other than lowercase and underscore? Ties in with other question
-                        defaultValue={this.state.screenName}
-                        onChange={this.updateUserName}
-                    />
-                </label>
-                <label className="form__input">
-                    Type:&nbsp;
-                    <input
-                        type="text"
-                        name="type"
-                        defaultValue={this.state.type}
-                        onChange={this.updateType}
-                    />
-                </label>
-                <label className="form__input">
-                    Show mental health settings:&nbsp;
-                    <input
-                        type="checkbox"
-                        name="healthSettings"
-                        value="1"
-                        onChange={this.updateHealthSettings}
-                    />
-                </label>
-                <label className="form__input">
-                    About:&nbsp;
-                    <input
-                        type="text"
-                        name="about"
-                        defaultValue={this.state.about}
-                        onChange={this.updateAbout}
-                    />
-                </label>
-                <label className="form__input">
-                    First name:&nbsp;
-                    <input
-                        type="text"
-                        name="firstName"
-                        defaultValue={this.state.firstName}
-                        onChange={this.updateFirstName}
-                    />
-                </label>
-                <label className="form__input">
-                    Last name:&nbsp;
-                    <input
-                        type="text"
-                        name="lastName"
-                        defaultValue={this.state.lastName}
-                        onChange={this.updateLastName}
-                    />
-                </label>
-                <label className="form__input">
-                    Postal code:&nbsp;
-                    <input
-                        type="text"
-                        name="postalCode"
-                        defaultValue={this.state.postalCode}
-                        onChange={this.updatePostalCode}
-                    />
-                </label>
-                <label className="form__input">
-                    Favourite studio:&nbsp;
-                    <input
-                        type="text"
-                        name="favouriteStudio"
-                        defaultValue={this.state.favouriteStudio}
-                        onChange={this.updateFavouriteStudio}
-                    />
-                </label>
-                <label className="form__input">
-                    Skills:&nbsp;
-                    <input
-                        type="text"
-                        name="skills"
-                        defaultValue={this.state.skills}
-                        onChange={this.updateSkills}
-                    />
-                </label>
-                <label className="form__input">
-                    Instruments:&nbsp;
-                    <input
-                        type="text"
-                        name="instruments"
-                        defaultValue={this.state.instruments}
-                        onChange={this.updateInstruments}
-                    />
-                </label>
-                <label className="form__input">
-                    Looking for:&nbsp;
-                    <input
-                        type="text"
-                        name="lookingFor"
-                        defaultValue={this.state.lookingFor}
-                        onChange={this.updateLookingFor}
-                    />
-                </label>
-                <Button
-                    type="submit"
-                    value="submit"
-                    onClick={this.handleClick}
-                />
-                <Button
-                    type="reset"
-                    value="clear"
-                />
+            <form className="user-add-edit">
+                <fieldset>
+                    <label className="user-add-edit__label field-row-stacked">
+                        E-mail:&nbsp;
+                        <input
+                            type="text"
+                            name="email"
+                            defaultValue={this.state.contactInfo.email}
+                            onChange={this.updateEmail}
+                        />
+                    </label>
+                    <label className="user-add-edit__label field-row-stacked">
+                        Phone:&nbsp;
+                        <input
+                            type="text"
+                            name="phone"
+                            // autoComplete="off"
+                            defaultValue={this.state.contactInfo.phone}
+                            onChange={this.updatePhone} // [Q] Can I add the existing validation here, too?
+                        />
+                    </label>
+                    <label className="user-add-edit__label field-row-stacked">
+                        SoundCloud:&nbsp;
+                        <input
+                            type="text"
+                            name="soundcloud"
+                            defaultValue={this.state.contactInfo.soundcloud}
+                            onChange={this.updateSoundcloud}
+                        />
+                    </label>
+                    <label className="user-add-edit__label field-row-stacked">
+                        Bandcamp:&nbsp;
+                        <input
+                            type="text"
+                            name="bandcamp"
+                            defaultValue={this.state.contactInfo.bandcamp}
+                            onChange={this.updateBandcamp}
+                        />
+                    </label>
+                    <label className="user-add-edit__label field-row-stacked">
+                        Facebook:&nbsp;
+                        <input
+                            type="text"
+                            name="facebook"
+                            defaultValue={this.state.contactInfo.facebook}
+                            onChange={this.updateFacebook}
+                        />
+                    </label>
+                    <label className="user-add-edit__label field-row-stacked">
+                        Website:&nbsp;
+                        <input
+                            type="text"
+                            name="website"
+                            defaultValue={this.state.contactInfo.website}
+                            onChange={this.updateWebsite}
+                        />
+                    </label>
+                    <label className="user-add-edit__label field-row-stacked">
+                        User name:&nbsp;
+                        <input
+                            type="text"
+                            name="screenName" // [Q] How can I prevent users from using anything other than lowercase and underscore? Ties in with other question
+                            defaultValue={this.state.screenName}
+                            onChange={this.updateUserName}
+                        />
+                    </label>
+                    <label className="user-add-edit__label field-row-stacked">
+                        Type:&nbsp;
+                        <input
+                            type="text"
+                            name="type"
+                            defaultValue={this.state.type}
+                            onChange={this.updateType}
+                        />
+                    </label>
+                    <label className="user-add-edit__label field-row-stacked">
+                        Show mental health settings:&nbsp;
+                        <input
+                            type="checkbox"
+                            name="healthSettings"
+                            value="1"
+                            onChange={this.updateHealthSettings}
+                        />
+                    </label>
+                    <label className="user-add-edit__label field-row-stacked">
+                        About:&nbsp;
+                        <textarea
+                            type="text"
+                            name="about"
+                            defaultValue={this.state.about}
+                            onChange={this.updateAbout}
+                        ></textarea>
+                    </label>
+                    <label className="user-add-edit__label field-row-stacked">
+                        First name:&nbsp;
+                        <input
+                            type="text"
+                            name="firstName"
+                            defaultValue={this.state.firstName}
+                            onChange={this.updateFirstName}
+                        />
+                    </label>
+                    <label className="user-add-edit__label field-row-stacked">
+                        Last name:&nbsp;
+                        <input
+                            type="text"
+                            name="lastName"
+                            defaultValue={this.state.lastName}
+                            onChange={this.updateLastName}
+                        />
+                    </label>
+                    <label className="user-add-edit__label field-row-stacked">
+                        Postal code:&nbsp;
+                        <input
+                            type="text"
+                            name="postalCode"
+                            defaultValue={this.state.postalCode}
+                            onChange={this.updatePostalCode}
+                        />
+                    </label>
+                    <label className="user-add-edit__label field-row-stacked">
+                        Favourite studio:&nbsp;
+                        <input
+                            type="text"
+                            name="favouriteStudio"
+                            defaultValue={this.state.favouriteStudio}
+                            onChange={this.updateFavouriteStudio}
+                        />
+                    </label>
+                    <label className="user-add-edit__label field-row-stacked">
+                        Skills:&nbsp;
+                        <input
+                            type="text"
+                            name="skills"
+                            defaultValue={this.state.skills}
+                            onChange={this.updateSkills}
+                        />
+                    </label>
+                    <label className="user-add-edit__label field-row-stacked">
+                        Instruments:&nbsp;
+                        <input
+                            type="text"
+                            name="instruments"
+                            defaultValue={this.state.instruments}
+                            onChange={this.updateInstruments}
+                        />
+                    </label>
+                    <label className="user-add-edit__label field-row-stacked">
+                        Looking for:&nbsp;
+                        <input
+                            type="text"
+                            name="lookingFor"
+                            defaultValue={this.state.lookingFor}
+                            onChange={this.updateLookingFor}
+                        />
+                    </label>
+                    <div className="user-add-edit__button-wrapper">
+                        <Button
+                            type="submit"
+                            label="Submit"
+                            onClick={this.handleClick}
+                        />
+                        <Button
+                            type="reset"
+                            label="Clear"
+                        />
+                    </div>
+                </fieldset>
             </form>
         );
     }

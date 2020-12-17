@@ -1,16 +1,29 @@
 .menu {
+    padding: 1rem;
+    display: none;
+    position: fixed;
+    top: 4rem;
+    right: 0;
+    // background-color: #C0C0C0;
+    font-size: 1rem;
 
     &__link-wrapper {
         @extend %flex;
         flex-direction: column;
     }
 
-    &__list-item {
+    &__item {
+        &:hover {
+            background-color: #e0e0e0;
+        }
 
+        &::first-letter {
+            text-decoration: underline;
+        }
     }
 
     &__link {
-
+        padding: 0 65% 0 10%;
     }
 
     &__copyright {

@@ -4,7 +4,7 @@ exports.up = (knex) => {
   return knex.schema.createTable('users', (table) => {
     table.increments('id').primary();
     table.json('contactInfo').notNullable();
-    table.string('userName').notNullable();
+    table.string('screenName').notNullable();
     table.string('type').notNullable();
     table.boolean('healthSettings').notNullable().defaultTo(true);
     table.text('about');
