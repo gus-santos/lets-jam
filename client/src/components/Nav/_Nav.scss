@@ -1,18 +1,42 @@
 .nav {
+    height: 4rem;
+
+    &__logo {
+        font-size: 2rem;
+        width: 16rem;
+    }
 
     &__list {
         @extend %flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
+        font-size: 1rem;
     }
 
     &__item {
-
-        &--menu{
-
+        align-self: center;
+        &--menu {
+            padding: 1.5rem;
+            &::first-letter {
+                text-decoration: underline;
+            }
+            &:hover {
+                background-color: #C0C0C0;
+                & .menu {
+                    display: inline;
+                }
+            }
         }
     }
 
     &__link {
 
+    }
+
+    &__footer {
+        max-width: 14rem;
+
+        & a:hover {
+            text-decoration: underline;
+        }
     }
 }

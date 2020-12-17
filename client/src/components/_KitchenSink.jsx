@@ -22,7 +22,7 @@ export default Button;
 
 /* <Post
         id={this.state.id}
-        userName={this.state.userName}
+        screenName={this.state.screenName}
         type={this.state.type}
         lookingFor={this.state.lookingFor}
         updatedAt={this.state.updatedAt}
@@ -48,7 +48,7 @@ const Post = (props) => {
                             className="post__user-name--link"
                             href={`/user/${props.id}`}
                         >
-                            {props.userName}
+                            {props.screenName}
                         </a>
                         {props.type === "band"
                             ? <span className="post__looking-for">{` — looking for ${props.lookingFor}`}</span>
@@ -93,7 +93,7 @@ const Feed = (props) => {
         <div className="feed">
             <Post
                 id="1"
-                userName="TestName"
+                screenName="TestName"
                 type="band"
                 lookingFor="guitarist"
                 updatedAt="just now"
@@ -101,7 +101,7 @@ const Feed = (props) => {
             />
             <Post
                 id="3"
-                userName="SecondName"
+                screenName="SecondName"
                 type="artist"
                 updatedAt="about now"
                 content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."

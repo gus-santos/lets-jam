@@ -8,12 +8,13 @@ import React from 'react';
 
 const Button = (props) => {
     return (
-        <input
-            type="button"
+        <button
             className={`button button--${props.type}`}
-            value={props.value}
+            type={props.type}
             onClick={props.onClick}
-        />
+        >
+            {props.label}
+        </button>
     );
 };
 

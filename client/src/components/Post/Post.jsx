@@ -1,6 +1,6 @@
 /* <Post
         id={this.state.id}
-        userName={this.state.userName}
+        screenName={this.state.screenName}
         type={this.state.type}
         lookingFor={this.state.lookingFor}
         updatedAt={this.state.updatedAt}
@@ -13,20 +13,22 @@ import React from 'react';
 
 const Post = (props) => {
     return (
-        <article className="post">
+        <article className="post window-content">
             <div className="post__nav">
-                <img
-                    src={`../assets/avatars/${props.id}.jpg`}
-                    alt="User avatar"
-                    className="post__avatar"
-                />
+                <a href={`/user/${props.id}`} className="post__avatar--link">
+                    <img
+                        src={`../assets/avatars/${props.id}.jpg`}
+                        alt="User avatar"
+                        className="post__avatar"
+                    />
+                </a>
                 <div className="post__name-wrapper">
                     <p className="post__user-name">
                         <a
                             className="post__user-name--link"
                             href={`/user/${props.id}`}
                         >
-                            {props.userName}
+                            {props.screenName}
                         </a>
                         {props.type === "band"
                             ? <span className="post__looking-for">{` — looking for ${props.lookingFor}`}</span>

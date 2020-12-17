@@ -17,14 +17,14 @@ router
   .post((req, res) => { // OK tested
     new User({
       contactInfo: JSON.stringify({
-        email: req.body.email,
-        phone: req.body.phone,
-        soundcloud: req.body.soundcloud,
-        bandcamp: req.body.bandcamp,
-        facebook: req.body.facebook,
-        website: req.body.website
+        email: req.body.contactInfo.email,
+        phone: req.body.contactInfo.phone,
+        soundcloud: req.body.contactInfo.soundcloud,
+        bandcamp: req.body.contactInfo.bandcamp,
+        facebook: req.body.contactInfo.facebook,
+        website: req.body.contactInfo.website
       }),
-      userName: req.body.userName,
+      screenName: req.body.screenName,
       type: req.body.type,
       healthSettings: req.body.healthSettings,
       about: req.body.about,
@@ -64,7 +64,7 @@ router
             contactInfo: JSON.stringify(req.body.contactInfo)
               ? JSON.stringify(req.body.contactInfo)
               : user.contactInfo,
-            userName: req.body.userName ? req.body.userName : user.userName,
+            screenName: req.body.screenName ? req.body.screenName : user.screenName,
             type: req.body.type ? req.body.type : user.type,
             healthSettings: req.body.healthSettings
               ? req.body.healthSettings
