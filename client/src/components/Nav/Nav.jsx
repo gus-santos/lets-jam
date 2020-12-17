@@ -6,7 +6,9 @@ import Menu from '../Menu/Menu';
 const Nav = () => {
     return (
         <div className="nav title-bar">
-            <h1 className="nav__logo title-bar-text">Let's Jam</h1>
+            <h1 className="nav__logo title-bar-text">
+                <a href="/" className="nav__logo--link">Let's Jam</a>
+            </h1>
             <ul className="nav__list">
                 <li className="nav__item  title-bar-text">
                     <a href="/" className="nav__link">Feed</a>

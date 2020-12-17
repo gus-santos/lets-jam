@@ -6,6 +6,7 @@
 
 
 // ===============> Partials <===========================
+@import '../../src/components/BSOD/BSOD';
 @import '../../src/components/Button/Button';
 @import '../../src/components/Feed/Feed';
 @import '../../src/components/Form/Form';
@@ -20,3 +21,13 @@
 @import '../../src/components/Settings/Settings';
 @import '../../src/components/UserAddEdit/UserAddEdit';
 @import '../../src/components/Visitor/Visitor';
+
+// ===============> Main page styling <==================
+.body {
+    background-color: #008080;
+}
+
+.main {
+    max-width: 80vw;
+    margin: 1rem auto;
+}
