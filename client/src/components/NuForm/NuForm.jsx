@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 
 export default function NuForm() {
-    const {register, handleSubmit, errors} = useForm();
+    const {register, handleSubmit} = useForm(); // , errors
 
     const onSubmit = (data) => {
         console.log(data);
@@ -30,7 +30,7 @@ export default function NuForm() {
             <input type="text" name="skills" ref={register} />
             <input type="text" name="instruments" ref={register} />
             <input type="text" name="lookingFor" ref={register} />   
-            {/* {errors.userName && <p>User name is invalid</p>} */}
+            {/* {errors.screenName && <p>User name is invalid</p>} */}
             {/* {errors.password && <p>{errors.password.message}</p>} */}
             <input type="submit" />
         </form>

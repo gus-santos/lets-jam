@@ -1,6 +1,6 @@
 /* <Post
         id={this.state.id}
-        userName={this.state.userName}
+        screenName={this.state.screenName}
         type={this.state.type}
         lookingFor={this.state.lookingFor}
         updatedAt={this.state.updatedAt}
@@ -26,7 +26,7 @@ const Post = (props) => {
                             className="post__user-name--link"
                             href={`/user/${props.id}`}
                         >
-                            {props.userName}
+                            {props.screenName}
                         </a>
                         {props.type === "band"
                             ? <span className="post__looking-for">{` — looking for ${props.lookingFor}`}</span>

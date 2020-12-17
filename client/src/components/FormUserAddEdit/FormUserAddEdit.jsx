@@ -12,7 +12,7 @@ class FormUserAddEdit extends React.Component {
         this.state = {
             data: {
                 contactInfo: {email: "", phone: "", soundcloud: "", bandcamp: "", facebook: "", website: ""},
-                userName: "",
+                screenName: "",
                 type: "",
                 healthSettings: 0,
                 about: "",
@@ -32,8 +32,9 @@ class FormUserAddEdit extends React.Component {
 
     componentDidMount() {
         axios
-            .get(`http://localhost:5000/user/1`)
+            .get(`http://localhost:5000/user/1`) // [Q] Params?
             .then((response) => {
+                console.log(response);
                 this.setState({
                     data: response.data
                 });
@@ -115,8 +116,8 @@ class FormUserAddEdit extends React.Component {
                     User name:&nbsp;
                     <input
                         type="text"
-                        name="userName" // [Q] How can I prevent users from using anything other than lowercase and underscore? Ties in with other question
-                        defaultValue={this.state.data.userName}
+                        name="screenName" // [Q] How can I prevent users from using anything other than lowercase and underscore? Ties in with other question
+                        defaultValue={this.state.data.screenName}
                         onChange={this.handleChange}
                     />
                 </label>
@@ -300,9 +301,9 @@ export default FormUserAddEdit;
                     User name:&nbsp;
                     <input
                         type="text"
-                        name="userName" // [Q] How can I prevent users from using anything other than lowercase and underscore? Ties in with other question
-                        value={this.state.user.userName}
-                        onChange={this.handleChange('userName')}
+                        name="screenName" // [Q] How can I prevent users from using anything other than lowercase and underscore? Ties in with other question
+                        value={this.state.user.screenName}
+                        onChange={this.handleChange('screenName')}
                     />
                 </label>
                 <label>
@@ -408,7 +409,7 @@ import Button from '../Button/Button';
 class FormUserAddEdit extends React.Component {
     const [state, setState] = React.useState({
         contactInfo: {email: "", phone: "", soundcloud: "", bandcamp: "", facebook: "", website: ""},
-        userName: "",
+        screenName: "",
         type: "",
         healthSettings: true,
         about: "",
@@ -491,8 +492,8 @@ class FormUserAddEdit extends React.Component {
                 User name:&nbsp;
                 <input
                     type="text"
-                    name="userName" // [Q] How can I prevent users from using anything other than lowercase and underscore? Ties in with other question
-                    value={state.userName}
+                    name="screenName" // [Q] How can I prevent users from using anything other than lowercase and underscore? Ties in with other question
+                    value={state.screenName}
                     onChange={handleChange}
                 />
             </label>
@@ -645,7 +646,7 @@ import Button from '../Button/Button';
 class FormUserAddEdit extends React.Component {
     const [state, setState] = React.useState({
         contactInfo: {email: "", phone: "", soundcloud: "", bandcamp: "", facebook: "", website: ""},
-        userName: "",
+        screenName: "",
         type: "",
         healthSettings: true,
         about: "",
@@ -728,8 +729,8 @@ class FormUserAddEdit extends React.Component {
                 User name:&nbsp;
                 <input
                     type="text"
-                    name="userName" // [Q] How can I prevent users from using anything other than lowercase and underscore? Ties in with other question
-                    value={state.userName}
+                    name="screenName" // [Q] How can I prevent users from using anything other than lowercase and underscore? Ties in with other question
+                    value={state.screenName}
                     onChange={handleChange}
                 />
             </label>
