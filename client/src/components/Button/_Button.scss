@@ -1,5 +1,9 @@
 .button {
 
+    &::first-letter {
+        text-decoration: underline;
+    }
+
     &--submit {
         // @extend .button;
     }

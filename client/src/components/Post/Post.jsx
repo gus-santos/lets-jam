@@ -13,7 +13,7 @@ import React from 'react';
 
 const Post = (props) => {
     return (
-        <article className="post window-content">
+        <article className="post">
             <div className="post__nav">
                 <a href={`/user/${props.id}`} className="post__avatar--link">
                     <img

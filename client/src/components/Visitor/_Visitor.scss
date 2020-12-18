@@ -1,0 +1,13 @@
+.visitor {
+    padding: 1rem;
+    white-space: pre-wrap;
+
+    &__text {
+        font-size: 1rem;
+    }
+
+    &__link {
+        color: blue;
+        text-decoration: underline;
+    }
+}
