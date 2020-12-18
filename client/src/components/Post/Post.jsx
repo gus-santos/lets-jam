@@ -13,7 +13,7 @@ import React from 'react';
 
 const Post = (props) => {
     return (
-        <article className="post">
+        <fieldset className="post">
             <div className="post__nav">
                 <a href={`/user/${props.id}`} className="post__avatar--link">
                     <img
@@ -30,9 +30,9 @@ const Post = (props) => {
                         >
                             {props.screenName}
                         </a>
-                        {props.type === "band"
+                        {props.lookingFor
                             ? <span className="post__looking-for">{` — looking for ${props.lookingFor}`}</span>
-                            : ""
+                            : <span className="post__looking-for">{` — plays the ${props.skills}`}</span>
                         }
                     </p>
                     <p className="post__date">
@@ -40,8 +40,8 @@ const Post = (props) => {
                     </p>
                 </div>
             </div>
-            <p className="post__content">{props.content}</p>
-        </article>
+            <pre className="post__content">{props.content}</pre>
+        </fieldset>
     );
 };
 

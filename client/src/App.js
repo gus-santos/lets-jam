@@ -5,7 +5,7 @@ import Visitor from "./components/Visitor/Visitor";
 import Feed from "./components/Feed/Feed";
 import Search from "./components/Search/Search";
 import FormPost from "./components/FormPost/FormPost";
-import MyProfile from "./components/MyProfile/MyProfile";
+import UserProfile from "./components/UserProfile/UserProfile";
 import Settings from "./components/Settings/Settings";
 import FAQ from "./components/FAQ/FAQ";
 import Contact from "./components/Contact/Contact";
@@ -25,7 +25,7 @@ function App() {
         <Route path="/feed" exact component={Feed} />
         <Route path="/search" exact component={Search} />
         <Route path="/post" exact component={FormPost} />
-        <Route path="/my-profile" exact component={MyProfile} />
+        <Route path="/user" exact component={UserProfile} />
         <Route path="/settings" exact component={Settings} />
         <Route path="/faq" exact component={FAQ} />
         <Route path="/contact" exact component={Contact} />

@@ -59,6 +59,10 @@ li {
   text-decoration: underline;
 }
 
+.feed {
+  padding: 1rem;
+}
+
 .form__input {
   display: block;
 }
@@ -146,25 +150,54 @@ li {
 }
 
 .post, .post__content {
+  margin-top: 1rem;
   font-size: 1rem;
 }
 
 .post__avatar {
   width: 5rem;
+  border: 3px ridge blue;
+}
+
+.post__avatar:hover {
+  border-color: red;
 }
 
 .post__name-wrapper {
+  padding: 0 1rem;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.post__user-name--link {
+  font-weight: bold;
+  color: blue;
+  text-decoration: underline;
+}
+
+.post__user-name--link:hover {
+  color: red;
+}
+
+.post__content {
+  white-space: pre-wrap;
 }
 
 .user-add-edit {
   padding: 1.5rem 0;
 }
 
+.user-add-edit input {
+  height: 1.75rem;
+}
+
 .user-add-edit input, .user-add-edit textarea {
   width: 40vw;
+}
+
+.user-add-edit label, .user-add-edit input, .user-add-edit textarea {
+  font-size: 1rem;
 }
 
 .user-add-edit fieldset {
@@ -177,6 +210,11 @@ li {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.user-add-edit__label input, .user-add-edit__label textarea {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .visitor {
