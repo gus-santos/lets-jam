@@ -21,8 +21,8 @@ router
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       postalCode: req.body.postalCode,
-      skills: JSON.stringify(req.body.skills),
-      lookingFor: JSON.stringify(req.body.lookingFor),
+      skills: req.body.skills,
+      lookingFor: req.body.lookingFor,
     })
     .save()
     .then((newUser) => {
@@ -54,11 +54,11 @@ router
             firstName: req.body.firstName ? req.body.firstName : user.firstName,
             lastName: req.body.lastName ? req.body.lastName : user.lastName,
             postalCode: req.body.postalCode ? req.body.postalCode : user.postalCode,
-            skills: JSON.stringify(req.body.skills)
-              ? JSON.stringify(req.body.skills)
+            skills: req.body.skills
+              ? req.body.skills
               : user.skills,
-            lookingFor: JSON.stringify(req.body.lookingFor)
-              ? JSON.stringify(req.body.lookingFor)
+            lookingFor: req.body.lookingFor
+              ? req.body.lookingFor
               : user.lookingFor
           })
           .then((updatedUser) => {

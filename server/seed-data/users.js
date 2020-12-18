@@ -22,10 +22,10 @@
         "instrument": "info",
         "secondInstrument": "info"
       }),
-      "instruments": JSON.stringify([
+      "instruments": 
         "Description of owned instrument",
         "Description of next instrument"
-      ])
+      
       // Eventually to get instrumentIds from table
     }
 
@@ -46,7 +46,7 @@
       "about": "",
       "postalCode": "",
       "favouriteStudio": "",
-      "lookingFor": JSON.stringify(["guitar", "keys", "vocals", "bass", "drums", "accordion", "turntable", "lap steel", "pedal steel", "harp", "harmonica"])
+      "lookingFor": "guitar", "keys", "vocals", "bass", "drums", "accordion", "turntable", "lap steel", "pedal steel", "harp", "harmonica"
     }
 */
 
@@ -57,14 +57,13 @@ module.exports = [
       "firstName": "John",
       "lastName": "Doe",
       "postalCode": "V5J 4E9",
-      "skills": JSON.stringify(["guitar", "vocals", "bass"]),
-      "instruments": JSON.stringify(["1996 Squier Stratocaster", "POD HD500"])
+      "skills": "guitar, vocals, bass"
     },
     {
       "screenName": "Da_Second_Band",
       "about": "We're a famous band and make some crazy cash",
       "postalCode": "V5J 3E9",
-      "lookingFor": JSON.stringify(["guitar", "keys", "vocals"])
+      "lookingFor": "guitar, keys, vocals"
     },
     {
       "screenName": "DaThird",
@@ -72,8 +71,7 @@ module.exports = [
       "firstName": "Jane",
       "lastName": "Doe",
       "postalCode": "V3J 4E9",
-      "skills": JSON.stringify(["accordion"]),
-      "instruments": JSON.stringify(["Cool old accordion"])
+      "skills": "accordion"
     },
     {
       "screenName": "Da-4",
@@ -81,12 +79,11 @@ module.exports = [
       "firstName": "Jim",
       "lastName": "Doe",
       "postalCode": "V5J 4A9",
-      "skills": JSON.stringify(["vocals", "bass"]),
-      "instruments": JSON.stringify(["1967 Fender Precision Bass"])
+      "skills": "vocals, bass"
     },
     {
       "screenName": "The_Jacksons_Five",
       "about": "We miss Michael",
-      "lookingFor": JSON.stringify(["vocals"])
+      "lookingFor": "vocals"
     }
   ];

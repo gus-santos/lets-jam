@@ -8,8 +8,8 @@ exports.up = (knex) => {
     table.string('firstName');
     table.string('lastName');
     table.string('postalCode');
-    table.json('skills');
-    table.json('lookingFor');
+    table.string('skills');
+    table.string('lookingFor');
     table.timestamp('updatedAt').defaultTo(knex.fn.now());
   });
 };

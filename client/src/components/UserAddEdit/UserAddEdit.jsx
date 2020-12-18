@@ -5,22 +5,12 @@ import Button from '../Button/Button';
 
 class UserAddEdit extends React.Component {
     state = {
-        contactInfo: {email: "",
-        phone: "",
-        soundcloud: "",
-        bandcamp: "",
-        facebook: "",
-        website: ""},
         screenName: "",
-        type: "",
-        healthSettings: 0,
         about: "",
         firstName: "",
         lastName: "",
         postalCode: "",
-        favouriteStudio: "",
-        skills: {},
-        instruments: [],
+        skills: "",
         lookingFor: ""
     };
 
@@ -152,10 +142,15 @@ class UserAddEdit extends React.Component {
     };
 
     handleClick = () => {
-        console.log("State after submission is",this.state);
-        axios
-            .post('http://localhost:5000/user/', this.state)
-            .then(console.log('User has been added'));
+        if (this.props.match.path === "/user/edit/:id") {
+            axios
+                .put(`http://localhost:5000/user/${this.state.id}`, this.state)
+                .then(alert("User has been updated"));
+        } else if (this.props.match.path === "/add-user") {
+            axios
+                .post('http://localhost:5000/user/', this.state)
+                .then(alert("User has been added"));
+        }
     }
 
     trimString = str => {
@@ -171,11 +166,7 @@ class UserAddEdit extends React.Component {
         axios
             .get(`http://localhost:5000/user/${this.props.match.params.id}`)
             .then((response) => {
-                let data = response.data;
-                data.contactInfo = JSON.parse(data.contactInfo);
-                data.skills = JSON.parse(data.skills);
                 this.setState(response.data);
-                console.log(this.state);
             });
     }
 
@@ -233,7 +224,7 @@ class UserAddEdit extends React.Component {
                         <input
                             type="text"
                             name="skills"
-                            defaultValue={this.state.skills ? this.state.skills : ""}
+                            defaultValue={this.state.skills}
                             onChange={this.updateSkills}
                         />
                     </label>

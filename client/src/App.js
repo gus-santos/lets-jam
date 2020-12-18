@@ -31,7 +31,7 @@ function App() {
         <Route path="/contact" exact component={Contact} />
         <Route path="/about" exact component={About} />
         <Route path="/add-user" exact component={UserAddEdit} />
-        <Route path="/user/:id" component={UserAddEdit} />
+        <Route path="/user/edit/:id" component={UserAddEdit} />
         <Route path= "*" component={BSOD} />
       </Switch>
     </div>
