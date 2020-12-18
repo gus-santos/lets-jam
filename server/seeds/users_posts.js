@@ -1,4 +1,3 @@
-// [Q] Can I throw in messaging and instruments? YUP
 const postData = require('../seed-data/posts');
 const userData = require('../seed-data/users');
 

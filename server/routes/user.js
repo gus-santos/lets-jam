@@ -16,25 +16,13 @@ router
   // POST new user
   .post((req, res) => { // OK tested
     new User({
-      contactInfo: JSON.stringify({
-        email: req.body.contactInfo.email,
-        phone: req.body.contactInfo.phone,
-        soundcloud: req.body.contactInfo.soundcloud,
-        bandcamp: req.body.contactInfo.bandcamp,
-        facebook: req.body.contactInfo.facebook,
-        website: req.body.contactInfo.website
-      }),
       screenName: req.body.screenName,
-      type: req.body.type,
-      healthSettings: req.body.healthSettings,
       about: req.body.about,
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       postalCode: req.body.postalCode,
-      favouriteStudio: req.body.favouriteStudio,
-      lookingFor: JSON.stringify(req.body.lookingFor),
       skills: JSON.stringify(req.body.skills),
-      instruments: JSON.stringify(req.body.instruments)
+      lookingFor: JSON.stringify(req.body.lookingFor),
     })
     .save()
     .then((newUser) => {
@@ -61,28 +49,17 @@ router
       .then((user) => {
         user
           .save({
-            contactInfo: JSON.stringify(req.body.contactInfo)
-              ? JSON.stringify(req.body.contactInfo)
-              : user.contactInfo,
             screenName: req.body.screenName ? req.body.screenName : user.screenName,
-            type: req.body.type ? req.body.type : user.type,
-            healthSettings: req.body.healthSettings
-              ? req.body.healthSettings
-              : user.healthSettings,
             about: req.body.about ? req.body.about : user.about,
             firstName: req.body.firstName ? req.body.firstName : user.firstName,
             lastName: req.body.lastName ? req.body.lastName : user.lastName,
             postalCode: req.body.postalCode ? req.body.postalCode : user.postalCode,
-            favouriteStudio: req.body.favouriteStudio ? req.body.favouriteStudio : user.favouriteStudio,
-            lookingFor: JSON.stringify(req.body.lookingFor)
-              ? JSON.stringify(req.body.lookingFor)
-              : user.lookingFor,
             skills: JSON.stringify(req.body.skills)
               ? JSON.stringify(req.body.skills)
               : user.skills,
-            instruments: JSON.stringify(req.body.instruments)
-              ? JSON.stringify(req.body.instruments)
-              : user.instruments
+            lookingFor: JSON.stringify(req.body.lookingFor)
+              ? JSON.stringify(req.body.lookingFor)
+              : user.lookingFor
           })
           .then((updatedUser) => {
             res.status(200).json({ updatedUser });

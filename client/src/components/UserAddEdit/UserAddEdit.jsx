@@ -175,7 +175,7 @@ class UserAddEdit extends React.Component {
                 data.contactInfo = JSON.parse(data.contactInfo);
                 data.skills = JSON.parse(data.skills);
                 this.setState(response.data);
-                console.log(this.state.skills);
+                console.log(this.state);
             });
     }
 
@@ -183,15 +183,6 @@ class UserAddEdit extends React.Component {
         return (
             <form className="user-add-edit">
                 <fieldset>
-                    <label className="user-add-edit__label field-row-stacked">
-                        E-mail:&nbsp;
-                        <input
-                            type="text"
-                            name="email"
-                            defaultValue={this.state.contactInfo.email}
-                            onChange={this.updateEmail}
-                        />
-                    </label>
                     <label className="user-add-edit__label field-row-stacked">
                         User name:&nbsp;
                         <input
@@ -242,7 +233,7 @@ class UserAddEdit extends React.Component {
                         <input
                             type="text"
                             name="skills"
-                            defaultValue={this.state.skills}
+                            defaultValue={this.state.skills ? this.state.skills : ""}
                             onChange={this.updateSkills}
                         />
                     </label>
