@@ -42,7 +42,7 @@ li {
 
 .bsod__title {
   height: 1.5rem;
-  width: 7.5rem;
+  width: 15rem;
   margin: 0 auto;
   font-size: 1.25rem;
   background-color: lightgray;
@@ -53,6 +53,10 @@ li {
 
 .bsod__text, .bsod__item {
   font-size: 1rem;
+}
+
+.button::first-letter {
+  text-decoration: underline;
 }
 
 .form__input {
@@ -100,6 +104,10 @@ li {
   width: 16rem;
 }
 
+.nav__logo::first-letter {
+  text-decoration: underline;
+}
+
 .nav__list {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -113,12 +121,12 @@ li {
       align-self: center;
 }
 
-.nav__item--menu {
-  padding: 1.5rem;
+.nav__item::first-letter {
+  text-decoration: underline;
 }
 
-.nav__item--menu::first-letter {
-  text-decoration: underline;
+.nav__item--menu {
+  padding: 1.5rem;
 }
 
 .nav__item--menu:hover {
@@ -135,6 +143,10 @@ li {
 
 .nav__footer a:hover {
   text-decoration: underline;
+}
+
+.post, .post__content {
+  font-size: 1rem;
 }
 
 .post__avatar {
@@ -155,7 +167,7 @@ li {
   width: 40vw;
 }
 
-.user-add-edit fieldset, .user-add-edit .post, .user-add-edit .post__content {
+.user-add-edit fieldset {
   width: 45vw;
   margin: 0 auto;
 }
@@ -165,6 +177,20 @@ li {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.visitor {
+  padding: 1rem;
+  white-space: pre-wrap;
+}
+
+.visitor__text {
+  font-size: 1rem;
+}
+
+.visitor__link {
+  color: blue;
+  text-decoration: underline;
 }
 
 .body {

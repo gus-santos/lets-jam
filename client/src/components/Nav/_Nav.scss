@@ -1,9 +1,13 @@
 .nav {
     height: 4rem;
-
+    
     &__logo {
         font-size: 2rem;
         width: 16rem;
+        
+        &::first-letter {
+            text-decoration: underline;
+        }
     }
 
     &__list {
@@ -14,11 +18,11 @@
 
     &__item {
         align-self: center;
+        &::first-letter {
+            text-decoration: underline;
+        }
         &--menu {
             padding: 1.5rem;
-            &::first-letter {
-                text-decoration: underline;
-            }
             &:hover {
                 background-color: #C0C0C0;
                 & .menu {

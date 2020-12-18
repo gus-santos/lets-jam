@@ -13,10 +13,10 @@ const Menu = (props) => {
                     <a href="/faq" className="menu__link">FAQ</a>
                 </li>
                 <li className="menu__item">
-                    <a href="/about" className="menu__link">About</a>
+                    <a href="/contact" className="menu__link">Contact</a>
                 </li>
                 <li className="menu__item">
-                    <a href="/contact" className="menu__link">Contact</a>
+                    <a href="/about" className="menu__link">About</a>
                 </li>
             </ul>
 

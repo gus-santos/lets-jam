@@ -1,6 +1,6 @@
 .post {
-    @extend fieldset;
-
+    font-size: 1rem;
+    
     &__nav {
         @extend %flex;
     }

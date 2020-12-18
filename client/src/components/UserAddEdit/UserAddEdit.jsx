@@ -1,5 +1,3 @@
-// Daniil help me
-
 import React from "react";
 import axios from 'axios';
 
