@@ -25,7 +25,8 @@ function App() {
         <Route path="/feed" exact component={Feed} />
         <Route path="/search" exact component={Search} />
         <Route path="/post" exact component={FormPost} />
-        <Route path="/my-profile" exact component={UserProfile} />
+        <Route path="/user" exact component={UserProfile} />
+        <Route path="/user/:id" exact component={UserProfile} />
         <Route path="/settings" exact component={Settings} />
         <Route path="/faq" exact component={FAQ} />
         <Route path="/contact" exact component={Contact} />

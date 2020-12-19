@@ -16,6 +16,9 @@ router
   // POST new user
   .post((req, res) => { // OK tested
     new User({
+      email: req.body.email,
+      postalCode: req.body.postalCode,
+      type: req.body.type,
       screenName: req.body.screenName,
       about: req.body.about,
       firstName: req.body.firstName,
@@ -49,17 +52,15 @@ router
       .then((user) => {
         user
           .save({
+            email: req.body.email ? req.body.email : user.email,
+            postalCode: req.body.postalCode ? req.body.postalCode : user.postalCode,
+            type: req.body.type ? req.body.type : user.type,
             screenName: req.body.screenName ? req.body.screenName : user.screenName,
             about: req.body.about ? req.body.about : user.about,
             firstName: req.body.firstName ? req.body.firstName : user.firstName,
             lastName: req.body.lastName ? req.body.lastName : user.lastName,
-            postalCode: req.body.postalCode ? req.body.postalCode : user.postalCode,
-            skills: req.body.skills
-              ? req.body.skills
-              : user.skills,
-            lookingFor: req.body.lookingFor
-              ? req.body.lookingFor
-              : user.lookingFor
+            skills: req.body.skills ? req.body.skills : user.skills,
+            lookingFor: req.body.lookingFor ? req.body.lookingFor : user.lookingFor
           })
           .then((updatedUser) => {
             res.status(200).json({ updatedUser });

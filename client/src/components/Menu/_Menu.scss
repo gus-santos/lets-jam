@@ -3,7 +3,8 @@
     display: none;
     position: fixed;
     top: 5rem;
-    right: 10vw; // [Q] Ok for feed. Bad for edit page? Mebbe 10%
+    right: 10vw; // [Q] Ok for feed. Bad for edit page?
+    // background-color: #C0C0C0;
     font-size: 1rem;
 
     &__link-wrapper {
@@ -23,5 +24,13 @@
 
     &__link {
         padding: 0 45% 0 10%;
+    }
+
+    &__footer {
+        max-width: 14rem;
+
+        & a:hover {
+            text-decoration: underline;
+        }
     }
 }

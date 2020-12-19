@@ -99,6 +99,14 @@ li {
   padding: 0 45% 0 10%;
 }
 
+.menu__footer {
+  max-width: 14rem;
+}
+
+.menu__footer a:hover {
+  text-decoration: underline;
+}
+
 .nav {
   height: 4rem;
 }
@@ -139,14 +147,6 @@ li {
 
 .nav__item--menu:hover .menu {
   display: inline;
-}
-
-.nav__footer {
-  max-width: 14rem;
-}
-
-.nav__footer a:hover {
-  text-decoration: underline;
 }
 
 .post, .post__content {
