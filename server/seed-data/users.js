@@ -38,7 +38,7 @@ module.exports = [
     "skills": "vocals, bass"
   },
   {
-    "email": "fifth@hprotonmail.com",
+    "email": "fifth@protonmail.com",
     "postalCode": "V4N 2K7",
     "type": "band",
     "screenName": "The_Jacksons_Five",
