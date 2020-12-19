@@ -7,6 +7,9 @@ const Menu = (props) => {
         <div className="menu window">
             <ul className="menu__link-wrapper">
                 <li className="menu__item">
+                    <a href="https://bouncebackbc.ca/" className="menu__link">Mental health</a>
+                </li>
+                <li className="menu__item">
                     <a href="/settings" className="menu__link">Settings</a>
                 </li>
                 <li className="menu__item">
@@ -20,8 +23,8 @@ const Menu = (props) => {
                 </li>
             </ul>
 
-            <p className="nav__footer">&copy; 2020 G. Santos</p>
-            <p className="nav__footer">Site best viewed in <a href="http://internetexplorer.com/">Microsoft Internet Explorer</a> in 800x600 resolution</p>
+            <p className="menu__footer">&copy; 2020 G. Santos</p>
+            <p className="menu__footer">Site best viewed in <a href="http://internetexplorer.com/">Microsoft Internet Explorer</a> in 800x600 resolution</p>
         </div>
     );
 };

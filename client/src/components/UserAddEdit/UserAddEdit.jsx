@@ -5,22 +5,12 @@ import Button from '../Button/Button';
 
 class UserAddEdit extends React.Component {
     state = {
-        contactInfo: {email: "",
-        phone: "",
-        soundcloud: "",
-        bandcamp: "",
-        facebook: "",
-        website: ""},
         screenName: "",
-        type: "",
-        healthSettings: 0,
         about: "",
         firstName: "",
         lastName: "",
         postalCode: "",
-        favouriteStudio: "",
-        skills: {},
-        instruments: [],
+        skills: "",
         lookingFor: ""
     };
 
@@ -152,10 +142,15 @@ class UserAddEdit extends React.Component {
     };
 
     handleClick = () => {
-        console.log("State after submission is",this.state);
-        axios
-            .post('http://localhost:5000/user/', this.state)
-            .then(console.log('User has been added'));
+        if (this.props.match.path === "/user/edit/:id") {
+            axios
+                .put(`http://localhost:5000/user/${this.state.id}`, this.state)
+                .then(alert("User has been updated"));
+        } else if (this.props.match.path === "/add-user") {
+            axios
+                .post('http://localhost:5000/user/', this.state)
+                .then(alert("User has been added"));
+        }
     }
 
     trimString = str => {
@@ -171,11 +166,7 @@ class UserAddEdit extends React.Component {
         axios
             .get(`http://localhost:5000/user/${this.props.match.params.id}`)
             .then((response) => {
-                let data = response.data;
-                data.contactInfo = JSON.parse(data.contactInfo);
-                data.skills = JSON.parse(data.skills);
                 this.setState(response.data);
-                console.log(this.state.skills);
             });
     }
 
@@ -184,85 +175,12 @@ class UserAddEdit extends React.Component {
             <form className="user-add-edit">
                 <fieldset>
                     <label className="user-add-edit__label field-row-stacked">
-                        E-mail:&nbsp;
-                        <input
-                            type="text"
-                            name="email"
-                            defaultValue={this.state.contactInfo.email}
-                            onChange={this.updateEmail}
-                        />
-                    </label>
-                    <label className="user-add-edit__label field-row-stacked">
-                        Phone:&nbsp;
-                        <input
-                            type="text"
-                            name="phone"
-                            // autoComplete="off"
-                            defaultValue={this.state.contactInfo.phone}
-                            onChange={this.updatePhone} // [Q] Can I add the existing validation here, too?
-                        />
-                    </label>
-                    <label className="user-add-edit__label field-row-stacked">
-                        SoundCloud:&nbsp;
-                        <input
-                            type="text"
-                            name="soundcloud"
-                            defaultValue={this.state.contactInfo.soundcloud}
-                            onChange={this.updateSoundcloud}
-                        />
-                    </label>
-                    <label className="user-add-edit__label field-row-stacked">
-                        Bandcamp:&nbsp;
-                        <input
-                            type="text"
-                            name="bandcamp"
-                            defaultValue={this.state.contactInfo.bandcamp}
-                            onChange={this.updateBandcamp}
-                        />
-                    </label>
-                    <label className="user-add-edit__label field-row-stacked">
-                        Facebook:&nbsp;
-                        <input
-                            type="text"
-                            name="facebook"
-                            defaultValue={this.state.contactInfo.facebook}
-                            onChange={this.updateFacebook}
-                        />
-                    </label>
-                    <label className="user-add-edit__label field-row-stacked">
-                        Website:&nbsp;
-                        <input
-                            type="text"
-                            name="website"
-                            defaultValue={this.state.contactInfo.website}
-                            onChange={this.updateWebsite}
-                        />
-                    </label>
-                    <label className="user-add-edit__label field-row-stacked">
                         User name:&nbsp;
                         <input
                             type="text"
                             name="screenName" // [Q] How can I prevent users from using anything other than lowercase and underscore? Ties in with other question
                             defaultValue={this.state.screenName}
                             onChange={this.updateUserName}
-                        />
-                    </label>
-                    <label className="user-add-edit__label field-row-stacked">
-                        Type:&nbsp;
-                        <input
-                            type="text"
-                            name="type"
-                            defaultValue={this.state.type}
-                            onChange={this.updateType}
-                        />
-                    </label>
-                    <label className="user-add-edit__label field-row-stacked">
-                        Show mental health settings:&nbsp;
-                        <input
-                            type="checkbox"
-                            name="healthSettings"
-                            value="1"
-                            onChange={this.updateHealthSettings}
                         />
                     </label>
                     <label className="user-add-edit__label field-row-stacked">
@@ -302,30 +220,12 @@ class UserAddEdit extends React.Component {
                         />
                     </label>
                     <label className="user-add-edit__label field-row-stacked">
-                        Favourite studio:&nbsp;
-                        <input
-                            type="text"
-                            name="favouriteStudio"
-                            defaultValue={this.state.favouriteStudio}
-                            onChange={this.updateFavouriteStudio}
-                        />
-                    </label>
-                    <label className="user-add-edit__label field-row-stacked">
                         Skills:&nbsp;
                         <input
                             type="text"
                             name="skills"
                             defaultValue={this.state.skills}
                             onChange={this.updateSkills}
-                        />
-                    </label>
-                    <label className="user-add-edit__label field-row-stacked">
-                        Instruments:&nbsp;
-                        <input
-                            type="text"
-                            name="instruments"
-                            defaultValue={this.state.instruments}
-                            onChange={this.updateInstruments}
                         />
                     </label>
                     <label className="user-add-edit__label field-row-stacked">

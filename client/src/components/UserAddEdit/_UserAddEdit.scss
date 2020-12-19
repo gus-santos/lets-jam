@@ -1,8 +1,16 @@
 .user-add-edit {
     padding: 1.5rem 0;
 
+    & input {
+        height: 1.75rem;
+    }
+    
     & input, & textarea {
         width: 40vw;
+    }
+
+    & label, & input, & textarea {
+        font-size: 1rem;
     }
 
     & fieldset {
@@ -14,5 +22,10 @@
         @extend %flex;
         padding: 1rem;
         justify-content: center;
+    }
+
+    &__label input, &__label textarea  {
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
     }
 }

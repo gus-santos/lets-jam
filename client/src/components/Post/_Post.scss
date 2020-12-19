@@ -1,4 +1,5 @@
 .post {
+    margin-top: 1rem;
     font-size: 1rem;
     
     &__nav {
@@ -7,22 +8,32 @@
 
     &__avatar {
         width: 5rem;
+        border: 3px ridge blue;
+        &:hover {
+            border-color: red;
+        }
     }
 
     &__name-wrapper {
         @extend %flex;
+        padding: 0 1rem;
         justify-content: space-between;
     }
 
     &__user-name {
-
         &--link {
-
+            font-weight: bold;
+            color: blue;
+            text-decoration: underline;
+            
+            &:hover {
+                color: red;
+            }
         }
     }
 
-    &__looking-for {
-
+    &__info {
+        
     }
 
     &__date {
@@ -31,6 +42,6 @@
 
     &__content {
         @extend .post;
-
+        white-space: pre-wrap;
     }
 }

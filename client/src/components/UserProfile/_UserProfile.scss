@@ -1,0 +1,30 @@
+.user-profile {
+    @extend %flex;
+    padding: 1rem;
+
+    &__info-wrapper {
+        margin-left: 20%;
+    }
+
+    &__info {
+        font-size: 1rem;
+    }
+
+    &__avatar {
+        width: 15rem;
+        border: 3px ridge blue;
+        &:hover {
+            border-color: red;
+        }
+    }
+
+    &__link {
+        color: blue;
+        text-decoration: underline;
+        font-size: 1rem;
+
+        &:hover {
+            color: red;
+        }
+    }
+}
