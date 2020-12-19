@@ -35,7 +35,7 @@ class UserProfile extends React.Component {
                     className="user-profile__avatar"
                 />
                 <div className="user-profile__info-wrapper">
-                    <p className="user-profile__info">User name:&nbsp;{this.state.screenName}</p>
+                    <p className="user-profile__info">Screen name:&nbsp;{this.state.screenName}</p>
                     <p className="user-profile__info">About:&nbsp;{this.state.about}</p>
                     {this.state.id === 1
                         ? <p className="user-profile__info">Name:&nbsp;{this.state.firstName} {this.state.lastName}</p>

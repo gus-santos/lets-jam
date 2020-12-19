@@ -5,11 +5,13 @@ import Button from '../Button/Button';
 
 class UserAddEdit extends React.Component {
     state = {
+        email: "",
+        postalCode: "",
+        type: "",
         screenName: "",
         about: "",
         firstName: "",
         lastName: "",
-        postalCode: "",
         skills: "",
         lookingFor: ""
     };
@@ -19,63 +21,8 @@ class UserAddEdit extends React.Component {
             email: event.target.value
         });
     };
-    
-    updatePhone = event => {
-        // custom format: (123) 456-7890
 
-        const phoneVal = this.trimString(event.target.value);
-        let formattedPhone = "";
-
-        for (let i = 0; i < phoneVal.length; i++) {
-            if (isNaN(phoneVal[i])) {
-                continue;
-            }
-
-            if (i === 0) {
-                formattedPhone += '(';
-            }
-
-            formattedPhone += phoneVal[i];
-
-            if (i === 2) {
-                formattedPhone += ') ';
-            }
-
-            if (i === 5) {
-                formattedPhone += '-';
-            }
-        }
-
-        this.setState({
-            phone: formattedPhone
-        });
-    };
-    
-    updateSoundcloud = event => {
-        this.setState({
-            soundcloud: event.target.value
-        });
-    };
-    
-    updateBandcamp = event => {
-        this.setState({
-            bandcamp: event.target.value
-        });
-    };
-    
-    updateFacebook = event => {
-        this.setState({
-            facebook: event.target.value
-        });
-    };
-    
-    updateWebsite= event => {
-        this.setState({
-            website: event.target.value
-        });
-    };
-    
-    updateUserName = event => {
+    updateScreenName = event => {
         this.setState({
             screenName: event.target.value
         });
@@ -175,12 +122,39 @@ class UserAddEdit extends React.Component {
             <form className="user-add-edit">
                 <fieldset>
                     <label className="user-add-edit__label field-row-stacked">
-                        User name:&nbsp;
+                        E-mail:&nbsp;
                         <input
                             type="text"
-                            name="screenName" // [Q] How can I prevent users from using anything other than lowercase and underscore? Ties in with other question
+                            name="email"
+                            defaultValue={this.state.email}
+                            onChange={this.updateEmail}
+                        />
+                    </label>
+                    <label className="user-add-edit__label field-row-stacked">
+                        Postal code:&nbsp;
+                        <input
+                            type="text"
+                            name="postalCode"
+                            defaultValue={this.state.postalCode}
+                            onChange={this.updatePostalCode}
+                        />
+                    </label>
+                    <label className="user-add-edit__label field-row-stacked">
+                        Artist or band:&nbsp;
+                        <input
+                            type="text"
+                            name="type"
+                            defaultValue={this.state.type}
+                            onChange={this.updateType}
+                        />
+                    </label>
+                    <label className="user-add-edit__label field-row-stacked">
+                        Screen name:&nbsp;
+                        <input
+                            type="text"
+                            name="screenName"
                             defaultValue={this.state.screenName}
-                            onChange={this.updateUserName}
+                            onChange={this.updateScreenName}
                         />
                     </label>
                     <label className="user-add-edit__label field-row-stacked">
@@ -219,24 +193,27 @@ class UserAddEdit extends React.Component {
                             onChange={this.updatePostalCode}
                         />
                     </label>
-                    <label className="user-add-edit__label field-row-stacked">
-                        Skills:&nbsp;
-                        <input
-                            type="text"
-                            name="skills"
-                            defaultValue={this.state.skills}
-                            onChange={this.updateSkills}
-                        />
-                    </label>
-                    <label className="user-add-edit__label field-row-stacked">
-                        Looking for:&nbsp;
-                        <input
-                            type="text"
-                            name="lookingFor"
-                            defaultValue={this.state.lookingFor}
-                            onChange={this.updateLookingFor}
-                        />
-                    </label>
+                    {
+                        this.state.type === "artist"
+                            ? <label className="user-add-edit__label field-row-stacked">
+                                Skills:&nbsp;
+                                <input
+                                    type="text"
+                                    name="skills"
+                                    defaultValue={this.state.skills}
+                                    onChange={this.updateSkills}
+                                />
+                            </label>
+                            : <label className="user-add-edit__label field-row-stacked">
+                                Looking for:&nbsp;
+                                <input
+                                    type="text"
+                                    name="lookingFor"
+                                    defaultValue={this.state.lookingFor}
+                                    onChange={this.updateLookingFor}
+                                />
+                            </label>
+                    }
                     <div className="user-add-edit__button-wrapper">
                         <Button
                             type="submit"
