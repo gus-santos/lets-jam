@@ -22,7 +22,7 @@ li {
   list-style-type: none;
 }
 
-.menu__link-wrapper, .nav__list, .post__nav, .post__name-wrapper, .user-add-edit__button-wrapper {
+.menu__link-wrapper, .nav__list, .post__nav, .post__name-wrapper, .user-add-edit__button-wrapper, .user-profile {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -96,7 +96,7 @@ li {
 }
 
 .menu__link {
-  padding: 0 65% 0 10%;
+  padding: 0 45% 0 10%;
 }
 
 .nav {
@@ -215,6 +215,37 @@ li {
 .user-add-edit__label input, .user-add-edit__label textarea {
   margin-top: 0.5rem;
   margin-bottom: 1rem;
+}
+
+.user-profile {
+  padding: 1rem;
+}
+
+.user-profile__info-wrapper {
+  margin-left: 20%;
+}
+
+.user-profile__info {
+  font-size: 1rem;
+}
+
+.user-profile__avatar {
+  width: 15rem;
+  border: 3px ridge blue;
+}
+
+.user-profile__avatar:hover {
+  border-color: red;
+}
+
+.user-profile__link {
+  color: blue;
+  text-decoration: underline;
+  font-size: 1rem;
+}
+
+.user-profile__link:hover {
+  color: red;
 }
 
 .visitor {

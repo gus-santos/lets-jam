@@ -7,6 +7,9 @@ const Menu = (props) => {
         <div className="menu window">
             <ul className="menu__link-wrapper">
                 <li className="menu__item">
+                    <a href="https://bouncebackbc.ca/" className="menu__link">Mental health</a>
+                </li>
+                <li className="menu__item">
                     <a href="/settings" className="menu__link">Settings</a>
                 </li>
                 <li className="menu__item">

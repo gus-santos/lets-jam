@@ -1,7 +1,9 @@
 import React from "react";
-import axios from 'axios';
+import axios from "axios";
+import timeago from "epoch-timeago";
+import moment from "moment";
 
-import Button from '../Button/Button';
+import Feed from '../Feed/Feed';
 
 class UserAddEdit extends React.Component {
     state = {
@@ -14,242 +16,48 @@ class UserAddEdit extends React.Component {
         lookingFor: ""
     };
 
-    updateEmail = event => {
-        this.setState({
-            email: event.target.value
-        });
-    };
-    
-    updatePhone = event => {
-        // custom format: (123) 456-7890
-
-        const phoneVal = this.trimString(event.target.value);
-        let formattedPhone = "";
-
-        for (let i = 0; i < phoneVal.length; i++) {
-            if (isNaN(phoneVal[i])) {
-                continue;
-            }
-
-            if (i === 0) {
-                formattedPhone += '(';
-            }
-
-            formattedPhone += phoneVal[i];
-
-            if (i === 2) {
-                formattedPhone += ') ';
-            }
-
-            if (i === 5) {
-                formattedPhone += '-';
-            }
-        }
-
-        this.setState({
-            phone: formattedPhone
-        });
-    };
-    
-    updateSoundcloud = event => {
-        this.setState({
-            soundcloud: event.target.value
-        });
-    };
-    
-    updateBandcamp = event => {
-        this.setState({
-            bandcamp: event.target.value
-        });
-    };
-    
-    updateFacebook = event => {
-        this.setState({
-            facebook: event.target.value
-        });
-    };
-    
-    updateWebsite= event => {
-        this.setState({
-            website: event.target.value
-        });
-    };
-    
-    updateUserName = event => {
-        this.setState({
-            screenName: event.target.value
-        });
-    };
-    
-    updateType = event => {
-        this.setState({
-            type: event.target.value
-        });
-    };
-    
-    updateHealthSettings = event => {
-        this.setState({
-            healthSettings: event.target.value
-        });
-    };
-    
-    updateAbout = event => {
-        this.setState({
-            about: event.target.value
-        });
-    };
-    
-    updateFirstName = event => {
-        this.setState({
-            firstName: event.target.value
-        });
-    };
-    
-    updateLastName = event => {
-        this.setState({
-            lastName: event.target.value
-        });
-    };
-    
-    updatePostalCode = event => {
-        this.setState({
-            postalCode: event.target.value
-        });
-    };
-    
-    updateFavouriteStudio = event => {
-        this.setState({
-            favouriteStudio: event.target.value
-        });
-    };
-    
-    updateSkills = event => {
-        this.setState({
-            skills: event.target.value
-        });
-    };
-    
-    updateInstruments = event => {
-        this.setState({
-            instruments: event.target.value
-        });
-    };
-    
-    updateLookingFor = event => {
-        this.setState({
-            lookingFor: event.target.value
-        });
-    };
-
-    handleClick = () => {
-        if (this.props.match.path === "/user/edit/:id") {
-            axios
-                .put(`http://localhost:5000/user/${this.state.id}`, this.state)
-                .then(alert("User has been updated"));
-        } else if (this.props.match.path === "/add-user") {
-            axios
-                .post('http://localhost:5000/user/', this.state)
-                .then(alert("User has been added"));
-        }
-    }
-
-    trimString = str => {
-        return str
-            .replace('(', '')
-            .replace(')', '')
-            .replace(' ', '')
-            .replace('-', '')
-            .substr(0, 10);
-    }
-
     componentDidMount() {
+        let id;
+        if(this.props.match.params.id){
+            id = this.props.match.params.id
+        } else {id = 1};
+
         axios
-            .get(`http://localhost:5000/user/${this.props.match.params.id}`)
+            .get(`http://localhost:5000/user/${id}`)
             .then((response) => {
+                console.log(response.data);
                 this.setState(response.data);
             });
     }
 
     render() {
         return (
-            <form className="user-add-edit">
-                <fieldset>
-                    <label className="user-add-edit__label field-row-stacked">
-                        User name:&nbsp;
-                        <input
-                            type="text"
-                            name="screenName" // [Q] How can I prevent users from using anything other than lowercase and underscore? Ties in with other question
-                            defaultValue={this.state.screenName}
-                            onChange={this.updateUserName}
-                        />
-                    </label>
-                    <label className="user-add-edit__label field-row-stacked">
-                        About:&nbsp;
-                        <textarea
-                            type="text"
-                            name="about"
-                            defaultValue={this.state.about}
-                            onChange={this.updateAbout}
-                        ></textarea>
-                    </label>
-                    <label className="user-add-edit__label field-row-stacked">
-                        First name:&nbsp;
-                        <input
-                            type="text"
-                            name="firstName"
-                            defaultValue={this.state.firstName}
-                            onChange={this.updateFirstName}
-                        />
-                    </label>
-                    <label className="user-add-edit__label field-row-stacked">
-                        Last name:&nbsp;
-                        <input
-                            type="text"
-                            name="lastName"
-                            defaultValue={this.state.lastName}
-                            onChange={this.updateLastName}
-                        />
-                    </label>
-                    <label className="user-add-edit__label field-row-stacked">
-                        Postal code:&nbsp;
-                        <input
-                            type="text"
-                            name="postalCode"
-                            defaultValue={this.state.postalCode}
-                            onChange={this.updatePostalCode}
-                        />
-                    </label>
-                    <label className="user-add-edit__label field-row-stacked">
-                        Skills:&nbsp;
-                        <input
-                            type="text"
-                            name="skills"
-                            defaultValue={this.state.skills}
-                            onChange={this.updateSkills}
-                        />
-                    </label>
-                    <label className="user-add-edit__label field-row-stacked">
-                        Looking for:&nbsp;
-                        <input
-                            type="text"
-                            name="lookingFor"
-                            defaultValue={this.state.lookingFor}
-                            onChange={this.updateLookingFor}
-                        />
-                    </label>
-                    <div className="user-add-edit__button-wrapper">
-                        <Button
-                            type="submit"
-                            label="Submit"
-                            onClick={this.handleClick}
-                        />
-                        <Button
-                            type="reset"
-                            label="Clear"
-                        />
-                    </div>
-                </fieldset>
-            </form>
+            <div className="user-profile ">
+                <img
+                    src={`../assets/avatars/${this.state.id}.jpg`}
+                    alt="User avatar"
+                    className="user-profile__avatar"
+                />
+                <div className="user-profile__info-wrapper">
+                    <p className="user-profile__info">User name:&nbsp;{this.state.screenName}</p>
+                    <p className="user-profile__info">About:&nbsp;{this.state.about}</p>
+                    {this.state.id === 1
+                        ? <p className="user-profile__info">Name:&nbsp;{this.state.firstName} {this.state.lastName}</p>
+                        : ""}
+                    {this.state.id !== 1
+                        ? <p className="user-profile__info">1.8 Km away</p>
+                        : ""}
+                    {this.state.skills ? <p className="user-profile__info">Skills:&nbsp;{this.state.skills}</p> : ""}
+                    {this.state.lookingFor ? <p className="user-profile__info">Looking for:&nbsp;{this.state.lookingFor}</p> : ""}
+                    <p className="user-profile__info">E-mail:&nbsp;
+                        <a href="mailto:email@hotmail.com" className="user-profile__link">email@hotmail.com</a>
+                    </p>
+                    {this.state.id === 1
+                        ? <a href="/user/edit/1" className="user-profile__link">Edit</a>
+                        : ""}
+                    
+                </div>
+            </div>
         );
     }
 }
