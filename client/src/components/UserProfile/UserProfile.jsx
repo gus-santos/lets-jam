@@ -2,24 +2,16 @@ import React from "react";
 import axios from "axios";
 
 class UserProfile extends React.Component {
-    state = {
-        screenName: "",
-        about: "",
-        firstName: "",
-        lastName: "",
-        postalCode: "",
-        skills: "",
-        lookingFor: ""
-    };
+    state = {};
 
     componentDidMount() {
-        let id;
+        let loggedUser = 1;
         if(this.props.match.params.id){
-            id = this.props.match.params.id
-        } else {id = 1};
+            loggedUser = this.props.match.params.id
+        };
 
         axios
-            .get(`http://localhost:5000/user/${id}`)
+            .get(`http://localhost:5000/user/${loggedUser}`)
             .then((response) => {
                 this.setState(response.data);
             });
@@ -39,9 +31,7 @@ class UserProfile extends React.Component {
                     {this.state.type=== "artist"
                         ? <p className="user-profile__info">Name:&nbsp;{this.state.firstName} {this.state.lastName}</p>
                         : ""}
-                    {this.state.type === "band"
-                        ? <p className="user-profile__info">1.8 Km away</p>
-                        : ""}
+                    <p className="user-profile__info">Postal code:&nbsp;{this.state.postalCode}</p>
                     {this.state.skills ? <p className="user-profile__info">Skills:&nbsp;{this.state.skills}</p> : ""}
                     {this.state.lookingFor ? <p className="user-profile__info">Looking for:&nbsp;{this.state.lookingFor}</p> : ""}
                     <p className="user-profile__info">E-mail:&nbsp;

@@ -22,7 +22,7 @@ li {
   list-style-type: none;
 }
 
-.menu__link-wrapper, .nav__list, .post__nav, .post__name-wrapper, .user-add-edit__button-wrapper, .user-profile {
+.menu__link-wrapper, .nav__list, .post__heading, .post__name-wrapper, .user-add-edit__button-wrapper, .user-profile {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -61,14 +61,6 @@ li {
 
 .feed {
   padding: 1rem;
-}
-
-.form__input {
-  display: block;
-}
-
-.form__input {
-  display: block;
 }
 
 .menu {

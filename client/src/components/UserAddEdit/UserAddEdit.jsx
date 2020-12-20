@@ -4,17 +4,7 @@ import axios from 'axios';
 import Button from '../Button/Button';
 
 class UserAddEdit extends React.Component {
-    state = {
-        email: "",
-        postalCode: "",
-        type: "",
-        screenName: "",
-        about: "",
-        firstName: "",
-        lastName: "",
-        skills: "",
-        lookingFor: ""
-    };
+    state = {};
 
     updateEmail = event => {
         this.setState({

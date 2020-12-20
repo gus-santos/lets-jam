@@ -2,12 +2,14 @@
 
 import React from "react";
 import axios from "axios";
-// import Post from "../Post/Post";
+import Post from "../Post/Post";
 
 class Feed extends React.Component {
     state = {
         posts: []
     }
+
+    loggedUser = 1; // [TBC]
 
     componentDidMount() {
         axios
@@ -23,16 +25,16 @@ class Feed extends React.Component {
         const { posts } = this.state;
 
         return (
-            <div>
-            {posts.length ? (
-                <ul>
-                  {posts.map((post) => (
-                    <p key={post.id}>{post.author} {post.content}</p>
-                  ))}
-                </ul>
-              ) : (
-                <p>There are no posts to be shown</p>
-              )}
+            <div className="feed__wrapper">
+                {posts.length ? (
+                <div className="feed">
+                    {posts.filter(posts => posts.author !== this.loggedUser).map((post) => (
+                        <Post id={post.id} author={post.author} content={post.content} />
+                    ))}
+                </div>
+                ) : (
+                    <p>There are no posts to be shown</p>
+                )}
             </div>
         );
     }
