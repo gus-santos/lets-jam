@@ -9,7 +9,7 @@ class Feed extends React.Component {
         posts: []
     }
 
-    loggedUser = 1; // [TBC]
+    loggedUser = 0; // [TBC] Set to 0 to show all posts (it's filtered below)
 
     componentDidMount() {
         axios
@@ -28,9 +28,12 @@ class Feed extends React.Component {
             <div className="feed__wrapper">
                 {posts.length ? (
                 <div className="feed">
-                    {posts.filter(posts => posts.author !== this.loggedUser).map((post) => (
-                        <Post id={post.id} author={post.author} content={post.content} />
-                    ))}
+                    {posts
+                        .filter(posts => posts.author !== this.loggedUser)
+                        .map((post) => (
+                            <Post key={post.id} {...post} />
+                        ))
+                    }
                 </div>
                 ) : (
                     <p>There are no posts to be shown</p>

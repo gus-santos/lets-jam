@@ -79,7 +79,7 @@ class UserAddEdit extends React.Component {
     };
 
     handleClick = () => {
-        if (this.props.match.path === "/user/edit/:id") {
+        if (this.props.match.path === "/user/:id/edit") {
             axios
                 .put(`http://localhost:5000/user/${this.state.id}`, this.state)
                 .then(alert("User has been updated"));
@@ -109,9 +109,9 @@ class UserAddEdit extends React.Component {
 
     render() {
         return (
-            <form className="user-add-edit">
+            <form className="add-edit">
                 <fieldset>
-                    <label className="user-add-edit__label field-row-stacked">
+                    <label className="add-edit__label field-row-stacked">
                         E-mail:&nbsp;
                         <input
                             type="text"
@@ -120,7 +120,7 @@ class UserAddEdit extends React.Component {
                             onChange={this.updateEmail}
                         />
                     </label>
-                    <label className="user-add-edit__label field-row-stacked">
+                    <label className="add-edit__label field-row-stacked">
                         Postal code:&nbsp;
                         <input
                             type="text"
@@ -129,7 +129,7 @@ class UserAddEdit extends React.Component {
                             onChange={this.updatePostalCode}
                         />
                     </label>
-                    <label className="user-add-edit__label field-row-stacked">
+                    <label className="add-edit__label field-row-stacked">
                         Artist or band:&nbsp;
                         <input
                             type="text"
@@ -138,7 +138,7 @@ class UserAddEdit extends React.Component {
                             onChange={this.updateType}
                         />
                     </label>
-                    <label className="user-add-edit__label field-row-stacked">
+                    <label className="add-edit__label field-row-stacked">
                         Screen name:&nbsp;
                         <input
                             type="text"
@@ -147,7 +147,7 @@ class UserAddEdit extends React.Component {
                             onChange={this.updateScreenName}
                         />
                     </label>
-                    <label className="user-add-edit__label field-row-stacked">
+                    <label className="add-edit__label field-row-stacked">
                         About:&nbsp;
                         <textarea
                             type="text"
@@ -156,7 +156,7 @@ class UserAddEdit extends React.Component {
                             onChange={this.updateAbout}
                         ></textarea>
                     </label>
-                    <label className="user-add-edit__label field-row-stacked">
+                    <label className="add-edit__label field-row-stacked">
                         First name:&nbsp;
                         <input
                             type="text"
@@ -165,7 +165,7 @@ class UserAddEdit extends React.Component {
                             onChange={this.updateFirstName}
                         />
                     </label>
-                    <label className="user-add-edit__label field-row-stacked">
+                    <label className="add-edit__label field-row-stacked">
                         Last name:&nbsp;
                         <input
                             type="text"
@@ -174,7 +174,7 @@ class UserAddEdit extends React.Component {
                             onChange={this.updateLastName}
                         />
                     </label>
-                    <label className="user-add-edit__label field-row-stacked">
+                    <label className="add-edit__label field-row-stacked">
                         Postal code:&nbsp;
                         <input
                             type="text"
@@ -185,7 +185,7 @@ class UserAddEdit extends React.Component {
                     </label>
                     {
                         this.state.type === "artist"
-                            ? <label className="user-add-edit__label field-row-stacked">
+                            ? <label className="add-edit__label field-row-stacked">
                                 Skills:&nbsp;
                                 <input
                                     type="text"
@@ -194,7 +194,7 @@ class UserAddEdit extends React.Component {
                                     onChange={this.updateSkills}
                                 />
                             </label>
-                            : <label className="user-add-edit__label field-row-stacked">
+                            : <label className="add-edit__label field-row-stacked">
                                 Looking for:&nbsp;
                                 <input
                                     type="text"
@@ -204,15 +204,11 @@ class UserAddEdit extends React.Component {
                                 />
                             </label>
                     }
-                    <div className="user-add-edit__button-wrapper">
+                    <div className="add-edit__button-wrapper">
                         <Button
                             type="submit"
                             label="Submit"
                             onClick={this.handleClick}
-                        />
-                        <Button
-                            type="reset"
-                            label="Clear"
                         />
                     </div>
                 </fieldset>

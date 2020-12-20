@@ -33,9 +33,11 @@ class Post extends React.Component {
                             >
                                 {this.state.screenName}
                             </a>
-                            {this.state.lookingFor
+                            {this.state.type === "band"
                                 ? <span className="post__info">{` — looking for ${this.state.lookingFor}`}</span>
-                                : <span className="post__info">{` — plays the ${this.state.skills}`}</span>
+                                : (this.state.type === "artist"
+                                ? <span className="post__info">{` — plays the ${this.state.skills}`}</span>
+                                : "")
                             }
                         </p>
                         <p className="post__date">

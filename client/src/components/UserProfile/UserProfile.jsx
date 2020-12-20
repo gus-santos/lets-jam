@@ -1,11 +1,18 @@
+/* [TBC] Get rid of magic number in
+    {this.state.id === 1 HERE
+        ? <a href={`/user/1/edit`} HERE className="user-profile__link">Edit</a>
+        : ""}
+*/
+
 import React from "react";
 import axios from "axios";
 
 class UserProfile extends React.Component {
     state = {};
-
+    
+    
     componentDidMount() {
-        let loggedUser = 1;
+        let loggedUser = 1; // [TBC]
         if(this.props.match.params.id){
             loggedUser = this.props.match.params.id
         };
@@ -38,9 +45,8 @@ class UserProfile extends React.Component {
                         <a href={`mailto:${this.state.email}`} className="user-profile__link">{this.state.email}</a>
                     </p>
                     {this.state.id === 1
-                        ? <a href="/user/edit/1" className="user-profile__link">Edit</a>
+                        ? <a href={`/user/1/edit`} className="user-profile__link">Edit</a>
                         : ""}
-                    
                 </div>
             </div>
         );
