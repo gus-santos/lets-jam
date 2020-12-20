@@ -17,7 +17,7 @@ const Nav = () => {
                     <a href="/search" className="nav__link">Search</a>
                 </li>
                 <li className="nav__item  title-bar-text">
-                    <a href="/post" className="nav__link">Post</a>
+                    <a href="/add-post" className="nav__link">Post</a>
                 </li>
                 <li className="nav__item  title-bar-text">
                     <a href={`/user`} className="nav__link">My profile</a>

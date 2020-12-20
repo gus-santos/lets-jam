@@ -1,48 +1,54 @@
-/* <Post
-        id={this.state.id}
-        screenName={this.state.screenName}
-        type={this.state.type}
-        lookingFor={this.state.lookingFor}
-        updatedAt={this.state.updatedAt}
-        content={this.state.content}
-    />
-*/
-// To do: likes, comments
+// [TBC] likes, comments
 
 import React from 'react';
+import axios from "axios";
 
-const Post = (props) => {
-    return (
-        <fieldset className="post">
-            <div className="post__nav">
-                <a href={`/user/${props.id}`} className="post__avatar--link">
-                    <img
-                        src={`../assets/avatars/${props.id}.jpg`}
-                        alt="User avatar"
-                        className="post__avatar"
-                    />
-                </a>
-                <div className="post__name-wrapper">
-                    <p className="post__user-name">
-                        <a
-                            className="post__user-name--link"
-                            href={`/user/${props.id}`}
-                        >
-                            {props.screenName}
-                        </a>
-                        {props.lookingFor
-                            ? <span className="post__info">{` — looking for ${props.lookingFor}`}</span>
-                            : <span className="post__info">{` — plays the ${props.skills}`}</span>
-                        }
-                    </p>
-                    <p className="post__date">
-                        {props.updatedAt}
-                    </p>
+class Post extends React.Component {
+    state = {};
+
+    componentDidMount() {
+        axios
+            .get(`http://localhost:5000/user/${this.props.author}`)
+            .then((response) => {
+                this.setState(response.data);
+            });
+    }
+
+    render() {
+        return (
+            <fieldset className="post" id={this.props.id}>
+                <div className="post__heading">
+                    <a href={`/user/${this.props.author}`} className="post__avatar--link">
+                        <img
+                            src={`../assets/avatars/${this.props.author}.jpg`}
+                            alt="User avatar"
+                            className="post__avatar"
+                        />
+                    </a>
+                    <div className="post__name-wrapper">
+                        <p className="post__user-name">
+                            <a
+                                className="post__user-name--link"
+                                href={`/user/${this.props.author}`}
+                            >
+                                {this.state.screenName}
+                            </a>
+                            {this.state.type === "band"
+                                ? <span className="post__info">{` — looking for ${this.state.lookingFor}`}</span>
+                                : (this.state.type === "artist"
+                                ? <span className="post__info">{` — plays the ${this.state.skills}`}</span>
+                                : "")
+                            }
+                        </p>
+                        <p className="post__date">
+                            {this.state.updatedAt}
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <pre className="post__content">{props.content}</pre>
-        </fieldset>
-    );
+                <pre className="post__content">{this.props.content}</pre>
+            </fieldset>
+        );
+    }
 };
 
 export default Post;

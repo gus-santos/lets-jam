@@ -12,7 +12,6 @@ app.use(express.json());
 app.use(cors());
 
 // Main routes
-const mentalHealthRoute = require('./routes/mental-health');
 const userRoute = require('./routes/user');
 const postsRoute = require('./routes/post');
 // const messagingRoute = require('./routes/messaging');
@@ -20,10 +19,10 @@ const postsRoute = require('./routes/post');
 
 
 // app.use('/');
-app.use('/mental-health', mentalHealthRoute);
 app.use('/user', userRoute);
 app.use('/posts', postsRoute);
 // app.use('/messaging', messagingRoute);
+// app.use('/instruments', instrumentsRoute);
 
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);

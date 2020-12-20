@@ -22,7 +22,7 @@ li {
   list-style-type: none;
 }
 
-.menu__link-wrapper, .nav__list, .post__nav, .post__name-wrapper, .user-add-edit__button-wrapper, .user-profile {
+.menu__link-wrapper, .nav__list, .post__heading, .post__name-wrapper, .add-edit__button-wrapper, .user-profile {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -61,14 +61,6 @@ li {
 
 .feed {
   padding: 1rem;
-}
-
-.form__input {
-  display: block;
-}
-
-.form__input {
-  display: block;
 }
 
 .menu {
@@ -184,37 +176,41 @@ li {
   white-space: pre-wrap;
 }
 
-.user-add-edit {
+.add-edit {
   padding: 1.5rem 0;
 }
 
-.user-add-edit input {
+.add-edit input {
   height: 1.75rem;
 }
 
-.user-add-edit input, .user-add-edit textarea {
+.add-edit input, .add-edit textarea {
   width: 40vw;
 }
 
-.user-add-edit label, .user-add-edit input, .user-add-edit textarea {
+.add-edit label, .add-edit input, .add-edit textarea {
   font-size: 1rem;
 }
 
-.user-add-edit fieldset {
+.add-edit fieldset {
   width: 45vw;
   margin: 0 auto;
 }
 
-.user-add-edit__button-wrapper {
+.add-edit__button-wrapper {
   padding: 1rem;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
-.user-add-edit__label input, .user-add-edit__label textarea {
+.add-edit__label input, .add-edit__label textarea {
   margin-top: 0.5rem;
   margin-bottom: 1rem;
+}
+
+.add-edit__speak-up {
+  height: 40vh;
 }
 
 .user-profile {
