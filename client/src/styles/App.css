@@ -90,6 +90,11 @@ li {
   font-size: 1.5rem;
 }
 
+.mental-health__section-title {
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+}
+
 .mental-health__card-wrapper {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -176,21 +181,18 @@ li {
 }
 
 .nav__item {
+  padding: 1.5rem;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
 }
 
+.nav__item:hover {
+  background-color: #C0C0C0;
+}
+
 .nav__item::first-letter {
   text-decoration: underline;
-}
-
-.nav__item--menu {
-  padding: 1.5rem;
-}
-
-.nav__item--menu:hover {
-  background-color: #C0C0C0;
 }
 
 .nav__item--menu:hover .menu {
