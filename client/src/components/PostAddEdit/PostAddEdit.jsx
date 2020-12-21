@@ -38,7 +38,7 @@ class PostAddEdit extends React.Component {
     render() {
         return (
             <form className="add-edit">
-                <fieldset>
+                <article>
                     <label className="add-edit__label field-row-stacked">
                         Speak up&nbsp;
                         <textarea
@@ -56,7 +56,7 @@ class PostAddEdit extends React.Component {
                             onClick={this.handleClick}
                         />
                     </div>
-                </fieldset>
+                </article>
             </form>
         );
     }

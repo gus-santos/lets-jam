@@ -16,7 +16,7 @@ class Post extends React.Component {
 
     render() {
         return (
-            <fieldset className="post" id={this.props.id}>
+            <article className="post" id={this.props.id}>
                 <div className="post__heading">
                     <a href={`/user/${this.props.author}`} className="post__avatar--link">
                         <img
@@ -46,7 +46,7 @@ class Post extends React.Component {
                     </div>
                 </div>
                 <pre className="post__content">{this.props.content}</pre>
-            </fieldset>
+            </article>
         );
     }
 };

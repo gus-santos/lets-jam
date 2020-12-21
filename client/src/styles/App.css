@@ -22,7 +22,7 @@ li {
   list-style-type: none;
 }
 
-.menu__link-wrapper, .nav__list, .post__heading, .post__name-wrapper, .add-edit__button-wrapper, .user-profile {
+.mental-health, .mental-health__card-wrapper, .mental-health__card, .menu__link-wrapper, .nav__list, .post__heading, .post__name-wrapper, .add-edit__button-wrapper, .user-profile {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -61,6 +61,62 @@ li {
 
 .feed {
   padding: 1rem;
+}
+
+.mental-health {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mental-health__info {
+  font-size: 1rem;
+}
+
+.mental-health__title {
+  margin-bottom: 0;
+}
+
+.mental-health__link {
+  margin: 0;
+  padding: 0;
+}
+
+.mental-health__disclaimer {
+  font-size: 1.5rem;
+}
+
+.mental-health__card-wrapper {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.mental-health__card {
+  width: 15rem;
+  margin: 1rem;
+  padding: 1rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mental-health__card-title {
+  font-size: 1.5rem;
+  white-space: pre-wrap;
 }
 
 .menu {
@@ -192,7 +248,7 @@ li {
   font-size: 1rem;
 }
 
-.add-edit fieldset {
+.add-edit article {
   width: 45vw;
   margin: 0 auto;
 }
@@ -256,6 +312,12 @@ li {
 .visitor__link {
   color: blue;
   text-decoration: underline;
+}
+
+article {
+  border: none;
+  -webkit-box-shadow: inset -0.0625rem -0.0625rem #fff, inset 0.0625rem 0.0625rem #0a0a0a, inset -0.125rem -0.125rem grey, inset 0.125rem 0.125rem #dfdfdf;
+          box-shadow: inset -0.0625rem -0.0625rem #fff, inset 0.0625rem 0.0625rem #0a0a0a, inset -0.125rem -0.125rem grey, inset 0.125rem 0.125rem #dfdfdf;
 }
 
 .body {

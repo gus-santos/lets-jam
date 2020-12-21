@@ -110,7 +110,7 @@ class UserAddEdit extends React.Component {
     render() {
         return (
             <form className="add-edit">
-                <fieldset>
+                <article>
                     <label className="add-edit__label field-row-stacked">
                         E-mail:&nbsp;
                         <input
@@ -211,7 +211,7 @@ class UserAddEdit extends React.Component {
                             onClick={this.handleClick}
                         />
                     </div>
-                </fieldset>
+                </article>
             </form>
         );
     }
