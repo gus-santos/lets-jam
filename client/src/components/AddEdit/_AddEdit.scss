@@ -24,6 +24,16 @@
         justify-content: center;
     }
 
+    &__label {
+        &--horizontal {
+            padding: 1rem 2rem 0 1rem;
+        }
+
+        &--post {
+            padding-top: 1rem
+        }
+    }
+
     &__label input, &__label textarea  {
         margin-top: 0.5rem;
         margin-bottom: 1rem;

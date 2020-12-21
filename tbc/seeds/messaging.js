@@ -23,9 +23,6 @@ exports.seed = function (knex) {
     })
     .then((senders) => {
       const messageDataWithUserIds = messageData.map((message) => {
-        message.id =
-          senders[Math.floor(Math.random() * senders.length)];
-          console.log(message);
         return message;
       });
       return knex('messages').insert(messageDataWithUserIds);

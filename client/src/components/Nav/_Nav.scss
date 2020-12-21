@@ -17,7 +17,7 @@
     }
 
     &__item {
-        padding: 1.5rem;
+        @extend .nav__link;
         align-self: center;
 
         &:hover {
@@ -35,5 +35,9 @@
                 }
             }
         }
+    }
+
+    &__link {
+        padding: 1.5rem;
     }
 }

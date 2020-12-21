@@ -16,19 +16,19 @@ const MentalHealth = () => {
                 />
                 <MentalHealthCard
                     info="Alcohol"
-                    url="https://"
-                    name="AA"
+                    url="https://www.vancouveraa.org/"
+                    name="Alcoholics Anonymous"
                 />
                 <MentalHealthCard
                     info="Drugs"
                     url="https://www.bcrna.ca/"
-                    name="NA"
+                    name="Narcotics Anonymous"
                 />
             </section>
             <h3 className="mental-health__section-title">Apps</h3>
             <section className="mental-health__card-wrapper">
                 <MentalHealthCard
-                    info="Less stressed. More resilient. Happier. It all starts with just a few minutes a day"
+                    info="Meditation and sleep made simple"
                     url="https://www.headspace.com/"
                     name="Headspace"
                 />
@@ -51,7 +51,7 @@ const MentalHealth = () => {
                     name="BounceBack BC"
                 />
                 <MentalHealthCard
-                    info="Evidence-based behavioural therapy app"
+                    info="Evidence-based behavioural therapy"
                     url="https://www.swasth.co/dbt-coach/"
                     name="DBT Coach"
                 />

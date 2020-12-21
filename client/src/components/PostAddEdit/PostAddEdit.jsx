@@ -39,7 +39,7 @@ class PostAddEdit extends React.Component {
         return (
             <form className="add-edit">
                 <article>
-                    <label className="add-edit__label field-row-stacked">
+                    <label className="add-edit__label add-edit__label--post field-row-stacked">
                         Speak up&nbsp;
                         <textarea
                             className="add-edit__speak-up"
