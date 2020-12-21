@@ -9,39 +9,39 @@
 module.exports = [
   {
     "author": 1,
-    "content": "Today was a good day I sold a brick of yay"
+    "content": "Hey there, any bands looking for a guitarist?"
   },
   {
     "author": 1,
-    "content": "Sumfinelse"
+    "content": "I can also do backing vocals"
   },
   {
     "author": 2,
-    "content": "Hey there"
+    "content": "My band is looking for a keyboardist! We are based in White Rock"
   },
   {
     "author": 1,
-    "content": "Pretty cool eh"
+    "content": "Oh, and I play the bass"
   },
   {
     "author": 3,
-    "content": "I'm number three"
+    "content": "Hey I'm a bassist too"
   },
   {
     "author": 2,
-    "content": "And this is me again"
+    "content": "We need someone to cover our drummer next Saturday"
   },
   {
     "author": 4,
-    "content": "Blabla lorem ipsum "
+    "content": "I'm free Saturday!"
   },
   {
     "author": 2,
-    "content": "God, this is boring"
+    "content": "Alright, I'll be in touch"
   },
   {
     "author": 5,
-    "content": "Like, really boring"
+    "content": "Any good vocalists around?"
   },
   {
     "author": 4,

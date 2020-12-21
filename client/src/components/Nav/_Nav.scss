@@ -17,18 +17,27 @@
     }
 
     &__item {
+        @extend .nav__link;
         align-self: center;
+
+        &:hover {
+            background-color: #C0C0C0;
+        }
+
         &::first-letter {
             text-decoration: underline;
         }
+
         &--menu {
-            padding: 1.5rem;
             &:hover {
-                background-color: #C0C0C0;
                 & .menu {
                     display: inline;
                 }
             }
         }
+    }
+
+    &__link {
+        padding: 1.5rem;
     }
 }

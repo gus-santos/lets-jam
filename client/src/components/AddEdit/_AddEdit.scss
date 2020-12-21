@@ -13,7 +13,7 @@
         font-size: 1rem;
     }
 
-    & fieldset {
+    & article {
         width: 45vw;
         margin: 0 auto;
     }
@@ -22,6 +22,16 @@
         @extend %flex;
         padding: 1rem;
         justify-content: center;
+    }
+
+    &__label {
+        &--horizontal {
+            padding: 1rem 2rem 0 1rem;
+        }
+
+        &--post {
+            padding-top: 1rem
+        }
     }
 
     &__label input, &__label textarea  {

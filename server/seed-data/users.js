@@ -7,7 +7,7 @@ module.exports = [
     "about": "I'm a 37-year-old guitarist who's been in town for a couple years",
     "firstName": "John",
     "lastName": "Doe",
-    "skills": "guitar, vocals, bass"
+    "skills": "guitar"
   },
   {
     "email": "band2@email.com",
@@ -15,7 +15,7 @@ module.exports = [
     "type": "band",
     "screenName": "Da_Second_Band",
     "about": "We're a famous band and make some crazy cash",
-    "lookingFor": "guitar, keys, vocals"
+    "lookingFor": "keys"
   },
   {
     "email": "thirdone@hotmail.com",
@@ -25,7 +25,7 @@ module.exports = [
     "about": "I'm the best",
     "firstName": "Dave",
     "lastName": "Doe",
-    "skills": "accordion"
+    "skills": "bass"
   },
   {
     "email": "no4@gmail.com",
@@ -35,7 +35,7 @@ module.exports = [
     "about": "I'm me",
     "firstName": "Jim",
     "lastName": "Doe",
-    "skills": "vocals, bass"
+    "skills": "drums"
   },
   {
     "email": "fifth@protonmail.com",
