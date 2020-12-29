@@ -1,6 +1,6 @@
 import React from "react";
 
-import MentalHealthCard from "../MentalHealthCard/MentalHealthCard";
+import MentalHealthCard from "../../components/MentalHealthCard/MentalHealthCard";
 
 const MentalHealth = () => {
     return (
