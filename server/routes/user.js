@@ -1,85 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/user');
+const userController = require('../controllers/user');
 
-// GET all users [TODO: filter]
-router
-  .route('/')
-  .get((req, res) => {
-    User.where(req.query)
-      .fetchAll()
-      .then((users) => {
-        res.status(200).json(users);
-      });
-  })
+// GET all users
+router.route('/').get(userController.get);
 
-  // POST new user
-  .post((req, res) => { // OK tested
-    new User({
-      email: req.body.email,
-      postalCode: req.body.postalCode,
-      type: req.body.type,
-      screenName: req.body.screenName,
-      about: req.body.about,
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      postalCode: req.body.postalCode,
-      skills: req.body.skills,
-      lookingFor: req.body.lookingFor,
-    })
-    .save()
-    .then((newUser) => {
-      res.status(201).json({ newUser });
-    });
-  });
+// POST new user
+router.route('/').post(userController.post);
 
-// GET user by id
-router
-  .route('/:id')
-  .get((req, res) => { // OK tested
-    User.where(req.params)
-    .fetch()
-    .then((user) => {
-      res.status(200).json(user);
-      console.log("User was found");
-    });
-  })
+// GET user by ID
+router.route('/:id').get(userController.getById);
 
-  // PUT update user by user.id
-  .put((req, res) => { // OK tested
-    User.where('id', req.params.id)
-      .fetch()
-      .then((user) => {
-        user
-          .save({
-            email: req.body.email ? req.body.email : user.email,
-            postalCode: req.body.postalCode ? req.body.postalCode : user.postalCode,
-            type: req.body.type ? req.body.type : user.type,
-            screenName: req.body.screenName ? req.body.screenName : user.screenName,
-            about: req.body.about ? req.body.about : user.about,
-            firstName: req.body.firstName ? req.body.firstName : user.firstName,
-            lastName: req.body.lastName ? req.body.lastName : user.lastName,
-            skills: req.body.skills ? req.body.skills : user.skills,
-            lookingFor: req.body.lookingFor ? req.body.lookingFor : user.lookingFor
-          })
-          .then((updatedUser) => {
-            res.status(200).json({ updatedUser });
-          });
-      });
-  })
-  
-  // DELETE user by user.id
-  .delete((req, res) => { // OK tested
-    User.where('id', req.params.id)
-      .destroy()
-      .then(() => {
-        res
-          .status(200)
-          .json({ message: 'User has been deleted' });
-      })
-      .catch(() => {
-        res.status(404).json({ error: 'User has not been found. Please provide a valid id' });
-      });
-  });
+// PUT update user by user.id
+router.route('/:id').put(userController.update);
 
-  module.exports = router;
+// DELETE user by user.id
+router.route('/:id').delete(userController.del);
+
+module.exports = router;
