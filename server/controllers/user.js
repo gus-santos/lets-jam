@@ -66,7 +66,7 @@ function del(req, res) {
   User.where('id', req.params.id)
     .destroy()
     .then((deletedUser) => {
-      res.status(200).json({ success: 'User has been deleted' }, deletedUser);
+      res.status(200).json({ success: 'User has been deleted' });
     });
 }
 

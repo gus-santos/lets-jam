@@ -182,23 +182,23 @@ class UserAddEdit extends React.Component {
                         />
                     </label>
                     {
-                        this.state.type === "artist"
+                        this.state.type === "band"
                             ? <label className="add-edit__label field-row-stacked">
-                                Skills:&nbsp;
-                                <input
-                                    type="text"
-                                    name="skills"
-                                    defaultValue={this.state.skills}
-                                    onChange={this.updateSkills}
-                                />
-                            </label>
-                            : <label className="add-edit__label field-row-stacked">
                                 Looking for:&nbsp;
                                 <input
                                     type="text"
                                     name="lookingFor"
                                     defaultValue={this.state.lookingFor}
                                     onChange={this.updateLookingFor}
+                                />
+                            </label>
+                            : <label className="add-edit__label field-row-stacked">
+                                Skills:&nbsp;
+                                <input
+                                    type="text"
+                                    name="skills"
+                                    defaultValue={this.state.skills}
+                                    onChange={this.updateSkills}
                                 />
                             </label>
                     }
