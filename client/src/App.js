@@ -10,13 +10,13 @@ import Search from "./components/Search/Search";
 import PostAddEdit from "./components/PostAddEdit/PostAddEdit";
 import UserProfile from "./components/UserProfile/UserProfile";
 
-import MentalHealth from "./components/MentalHealth/MentalHealth";
-import Settings from "./components/Settings/Settings";
-import FAQ from "./components/FAQ/FAQ";
-import Contact from "./components/Contact/Contact";
-import About from "./components/About/About";
+import MentalHealth from "./pages/MentalHealth/MentalHealth";
+import Settings from "./pages/Settings/Settings";
+import FAQ from "./pages/FAQ/FAQ";
+import Contact from "./pages/Contact/Contact";
+import About from "./pages/About/About";
 
-import BSOD from "./components/BSOD/BSOD";
+import BSOD from "./pages/BSOD/BSOD";
 import { Switch, Route } from "react-router-dom";
 
 // const express = require("express");
