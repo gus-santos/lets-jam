@@ -131,12 +131,10 @@ class UserAddEdit extends React.Component {
                     </label>
                     <label className="add-edit__label field-row-stacked">
                         Artist or band:&nbsp;
-                        <input
-                            type="text"
-                            name="type"
-                            defaultValue={this.state.type}
-                            onChange={this.updateType}
-                        />
+                        <select name="type" value={this.state.value} onChange={this.updateType}>
+                            <option value="artist">Artist</option>
+                            <option value="band">Band</option>
+                        </select>
                     </label>
                     <label className="add-edit__label field-row-stacked">
                         Screen name:&nbsp;
