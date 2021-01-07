@@ -1,13 +1,13 @@
 import "./styles/App.css";
 
 import Nav from "./components/Nav/Nav";
-import Visitor from "./components/Visitor/Visitor";
+import Visitor from "./pages/Visitor/Visitor";
 
-import UserAddEdit from "./components/UserAddEdit/UserAddEdit";
+import AddEditUser from "./components/AddEditUser/AddEditUser";
 
 import Feed from "./components/Feed/Feed";
 import Search from "./components/Search/Search";
-import PostAddEdit from "./components/PostAddEdit/PostAddEdit";
+import AddEditPost from "./components/AddEditPost/AddEditPost";
 import UserProfile from "./components/UserProfile/UserProfile";
 
 import MentalHealth from "./pages/MentalHealth/MentalHealth";
@@ -17,9 +17,8 @@ import Contact from "./pages/Contact/Contact";
 import About from "./pages/About/About";
 
 import BSOD from "./pages/BSOD/BSOD";
-import { Switch, Route } from "react-router-dom";
 
-// const express = require("express");
+import { Switch, Route, Redirect } from "react-router-dom";
 
 function App() {
   return (
@@ -27,16 +26,17 @@ function App() {
       <Nav />
       <Switch>
         <Route path="/" exact component={Visitor} />
+        
         <Route path="/feed" exact component={Feed} />
-        <Route path="/posts/:id/edit" exact component={PostAddEdit} />
-        <Route path="/add-post" exact component={PostAddEdit} />
+        <Route path="/add-post" exact component={AddEditPost} />
+        <Route path="/posts/:id/edit" exact component={AddEditPost} />
         
         <Route path="/search" exact component={Search} />
         
-        <Route path="/add-user" exact component={UserAddEdit} />
+        <Route path="/add-user" exact component={AddEditUser} />
         <Route path="/user" exact component={UserProfile} />
         <Route path="/user/:id" exact component={UserProfile} />
-        <Route path="/user/:id/edit" component={UserAddEdit} />
+        <Route path="/user/:id/edit" component={AddEditUser} />
         
         <Route path="/mental-health" exact component={MentalHealth} />
         <Route path="/settings" exact component={Settings} />
@@ -44,7 +44,8 @@ function App() {
         <Route path="/contact" exact component={Contact} />
         <Route path="/about" exact component={About} />
 
-        <Route path="*" component={BSOD} />
+        <Route path="/page-not-found" component={BSOD} />
+        <Redirect to="/page-not-found" />
       </Switch>
     </div>
   );

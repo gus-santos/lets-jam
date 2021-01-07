@@ -2,9 +2,11 @@
 
 import React from 'react';
 import axios from "axios";
-
+import TimeAgo from 'react-timeago';
 class Post extends React.Component {
     state = {};
+
+    // [Q] I wanted to destructure props but I can't declare a variable in a class function?
 
     componentDidMount() {
         axios
@@ -29,7 +31,7 @@ class Post extends React.Component {
                         <p className="post__user-name">
                             <a
                                 className="post__user-name--link"
-                                href={`/user/${this.props.author}`}
+                                href={`/user/${this.props.author}`} // [Q] Any advantage to using this.state.id?
                             >
                                 {this.state.screenName}
                             </a>
@@ -41,7 +43,7 @@ class Post extends React.Component {
                             }
                         </p>
                         <p className="post__date">
-                            {this.state.updatedAt}
+                            <TimeAgo date={new Date(this.props.updatedAt).toLocaleDateString()} />
                         </p>
                     </div>
                 </div>
