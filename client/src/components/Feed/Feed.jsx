@@ -22,14 +22,18 @@ class Feed extends React.Component {
     }
 
     render() {
-        const { posts } = this.state;
+        // Order posts by date
+        const sortPosts = (arr) => arr.sort((a, b) => b.id - a.id);
+
+        const sortedPosts = sortPosts(this.state.posts);
 
         return (
+            
             <div className="feed__wrapper">
-                {posts.length ? (
+                {sortedPosts.length ? (
                 <div className="feed">
-                    {posts
-                        .filter(posts => posts.author !== this.loggedUser)
+                    {sortedPosts
+                        .filter(sortedPosts => sortedPosts.author !== this.loggedUser)
                         .map((post) => (
                             <Post key={post.id} {...post} />
                         ))

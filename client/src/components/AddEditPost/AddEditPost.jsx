@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import Button from '../Button/Button';
 
-class PostAddEdit extends React.Component {
+class AddEditPost extends React.Component {
     state = {};
 
     loggedUser = 1; // [TBC]
@@ -62,4 +62,4 @@ class PostAddEdit extends React.Component {
     }
 }
 
-export default PostAddEdit;
+export default AddEditPost;

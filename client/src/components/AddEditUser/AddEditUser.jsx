@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import Button from '../Button/Button';
 
-class UserAddEdit extends React.Component {
+class AddEditUser extends React.Component {
     state = {};
 
     updateEmail = event => {
@@ -215,4 +215,4 @@ class UserAddEdit extends React.Component {
     }
 }
 
-export default UserAddEdit;
+export default AddEditUser;
