@@ -16,24 +16,29 @@ class AddEditPost extends React.Component {
     };
 
     handleClick = () => {
-        if (this.props.match.path === "/posts/:id/edit") {
+        /*if (this.props.match.path === "/posts/:id/edit") {
             axios
                 .put(`http://localhost:5000/posts/${this.state.id}`, this.state)
-                .then(alert("Post has been updated"));
-        } else if (this.props.match.path === "/add-post") {
+                .then(alert("Post has been updated"))
+            ;
+        } else {*/
             axios
                 .post('http://localhost:5000/posts/', this.state)
-                .then(alert("Post has been added"));
-        }
+                .then(alert("Post has been added"))
+            ;
+        //}
     }
 
-    componentDidMount() {
-        axios
-            .get(`http://localhost:5000/posts/${this.props.match.params.id}`)
-            .then((response) => {
-                this.setState(response.data);
-            });
-    }
+    /*componentDidMount() {
+        if (this.props.match.params.id) {
+            axios
+                .get(`http://localhost:5000/posts/${this.props.match.params.id}`)
+                .then((response) => {
+                    this.setState(response.data);
+                })
+            ;
+        }
+    }*/
 
     render() {
         return (
