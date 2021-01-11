@@ -43,11 +43,11 @@ class AddEditPost extends React.Component {
     render() {
         return (
             <form className="add-edit">
-                <article>
+                <section className="add-edit__speak-up">
                     <label className="add-edit__label add-edit__label--post field-row-stacked">
                         Speak up&nbsp;
                         <textarea
-                            className="add-edit__speak-up"
+                            className="add-edit__post-content"
                             type="text"
                             name="about"
                             defaultValue={this.state.content}
@@ -61,7 +61,7 @@ class AddEditPost extends React.Component {
                             onClick={this.handleClick}
                         />
                     </div>
-                </article>
+                </section>
             </form>
         );
     }

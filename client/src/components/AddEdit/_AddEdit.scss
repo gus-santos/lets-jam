@@ -40,7 +40,11 @@
     }
 
     &__speak-up {
-        height: 20vh;
-        width: 90vw;
+        // width: 100rem;
+    }
+
+    &__post-content {
+        height: 6rem;
+        width: 90% !important;
     }
 }
