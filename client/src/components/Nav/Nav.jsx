@@ -18,7 +18,7 @@ const Nav = () => {
                 </li>
                 {/*<li className="nav__item  title-bar-text">
                     <a href="/add-post" className="nav__link">Post</a>
-    </li>*/}
+                </li>*/}
                 <li className="nav__item  title-bar-text">
                     <a href={`/user`} className="nav__link">My profile</a>
                 </li>

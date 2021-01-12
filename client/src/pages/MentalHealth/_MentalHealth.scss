@@ -23,11 +23,13 @@
     &__section-title {
         margin-block-start: 1rem;
         margin-block-end: 0;
+        margin-right: auto;
     }
 
     &__card-wrapper {
         @extend %flex;
-        justify-content: center;
+        padding: 0 3rem;
+        justify-content: flex-start;
         flex-wrap: wrap;
     }
 

@@ -28,7 +28,6 @@ function App() {
         <Route path="/" exact component={Visitor} />
         
         <Route path="/feed" exact component={Feed} />
-        <Route path="/add-post" exact component={AddEditPost} />
         <Route path="/posts/:id/edit" exact component={AddEditPost} />
         
         <Route path="/search" exact component={Search} />

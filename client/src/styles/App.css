@@ -70,9 +70,9 @@ li {
   margin-bottom: 1rem;
 }
 
-.add-edit__post-content {
+textarea.add-edit__post-content {
   height: 6rem;
-  width: 90% !important;
+  width: 90%;
 }
 
 .button::first-letter {
@@ -285,12 +285,14 @@ li {
           margin-block-start: 1rem;
   -webkit-margin-after: 0;
           margin-block-end: 0;
+  margin-right: auto;
 }
 
 .mental-health__card-wrapper {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  padding: 0 3rem;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
