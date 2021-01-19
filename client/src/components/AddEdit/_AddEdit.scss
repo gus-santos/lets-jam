@@ -38,10 +38,16 @@
         margin-top: 0.5rem;
         margin-bottom: 1rem;
     }
+
+    &__speak-up {
+        width: 50%;
+        margin: 0 auto;
+    }
 }
 
 // Bit of a hack since .add-edit textarea has a weight of 11
 textarea.add-edit__post-content {
     height: 6rem;
     width: 90%;
+    resize: none;
 }

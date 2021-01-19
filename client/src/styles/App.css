@@ -70,9 +70,15 @@ li {
   margin-bottom: 1rem;
 }
 
+.add-edit__speak-up {
+  width: 50%;
+  margin: 0 auto;
+}
+
 textarea.add-edit__post-content {
   height: 6rem;
   width: 90%;
+  resize: none;
 }
 
 .button::first-letter {
