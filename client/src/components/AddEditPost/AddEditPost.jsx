@@ -23,8 +23,8 @@ class AddEditPost extends React.Component {
             ;
         } else {*/
             axios
-                .post('http://localhost:5000/posts/', this.state)
-                .then(alert("Post has been added"))
+                .post('http://localhost:5000/posts/', this.state) // kinda jumpy
+                //.then(alert("Post has been added"))
             ;
         //}
     }
