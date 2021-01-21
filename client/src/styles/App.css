@@ -71,8 +71,14 @@ li {
 }
 
 .add-edit__speak-up {
-  height: 20vh;
-  width: 90vw;
+  width: 50%;
+  margin: 0 auto;
+}
+
+textarea.add-edit__post-content {
+  height: 6rem;
+  width: 90%;
+  resize: none;
 }
 
 .button::first-letter {
@@ -285,12 +291,14 @@ li {
           margin-block-start: 1rem;
   -webkit-margin-after: 0;
           margin-block-end: 0;
+  margin-right: auto;
 }
 
 .mental-health__card-wrapper {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  padding: 0 3rem;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
@@ -330,7 +338,7 @@ li {
   text-decoration: underline;
 }
 
-article {
+article, section {
   border: none;
   -webkit-box-shadow: inset -0.0625rem -0.0625rem #fff, inset 0.0625rem 0.0625rem #0a0a0a, inset -0.125rem -0.125rem grey, inset 0.125rem 0.125rem #dfdfdf;
           box-shadow: inset -0.0625rem -0.0625rem #fff, inset 0.0625rem 0.0625rem #0a0a0a, inset -0.125rem -0.125rem grey, inset 0.125rem 0.125rem #dfdfdf;

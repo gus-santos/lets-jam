@@ -7,8 +7,8 @@ const MentalHealth = () => {
         <div className="mental-health">
             <h2 className="mental-health__title">Be kind to yourself</h2>
             <p className="mental-health__disclaimer">Here are some mental health resources:</p>
-            <h3 className="mental-health__section-title">Services</h3>
             <section className="mental-health__card-wrapper">
+                <h3 className="mental-health__section-title">Services</h3>
                 <MentalHealthCard
                     info="Get immediate help"
                     url="https://crisiscentre.bc.ca/"
@@ -25,8 +25,8 @@ const MentalHealth = () => {
                     name="Narcotics Anonymous"
                 />
             </section>
-            <h3 className="mental-health__section-title">Apps</h3>
             <section className="mental-health__card-wrapper">
+                <h3 className="mental-health__section-title">Apps</h3>
                 <MentalHealthCard
                     info="Meditation and sleep made simple"
                     url="https://www.headspace.com/"
@@ -42,9 +42,9 @@ const MentalHealth = () => {
                     url="https://www.calm.com/"
                     name="Calm"
                 />
-                </section>
+            </section>
+            <section className="mental-health__card-wrapper">
                 <h3 className="mental-health__section-title">Programs</h3>
-                <section className="mental-health__card-wrapper">
                 <MentalHealthCard
                     info="Feeling low, stressed or anxious?"
                     url="https://bouncebackbc.ca/"
@@ -56,7 +56,7 @@ const MentalHealth = () => {
                     name="DBT Coach"
                 />
             </section>
-        </div>
+    </div>
     );
 };
 

@@ -42,8 +42,9 @@ class Post extends React.Component {
                                 : "")
                             }
                         </p>
+                        {/* I didn't mean for it to be a counter but hey, it works for now */}
                         <p className="post__date">
-                            <TimeAgo date={new Date(this.props.updatedAt).toLocaleDateString()} />
+                            <TimeAgo date={new Date(this.props.updatedAt).toString()} />
                         </p>
                     </div>
                 </div>

@@ -22,7 +22,7 @@
 @import '../../src/pages/Visitor/Visitor';
 
 // ===============> Main page styling <==================
-article {
+article, section {
     border: none;
     box-shadow: inset -0.0625rem -0.0625rem #fff, inset 0.0625rem 0.0625rem #0a0a0a, inset -0.125rem -0.125rem grey, inset 0.125rem 0.125rem #dfdfdf;
 }
