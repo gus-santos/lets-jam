@@ -15,14 +15,14 @@ class AddEditPost extends React.Component {
         });
     };
 
-    handleClick = () => {
+    handleClick = async () => {
         /*if (this.props.match.path === "/posts/:id/edit") {
-            axios
+            await axios
                 .put(`http://localhost:5000/posts/${this.props.id}`, this.props)
                 .then(alert("Post has been updated"))
             ;
         } else {*/
-            axios
+            await axios
                 .post('http://localhost:5000/posts/', this.state.posts) // kinda jumpy
                 //.then(alert("Post has been added"))
             ;

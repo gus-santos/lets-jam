@@ -12,8 +12,8 @@ class Feed extends React.Component {
 
     loggedUser = 0; // [TBC] Set to 0 to show all posts (it's filtered below)
 
-    componentDidMount() {
-        axios
+    componentDidMount = async () => {
+        await axios
             .get(`http://localhost:5000/posts`)
             .then((response) => {
                 this.setState({

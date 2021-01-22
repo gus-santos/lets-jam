@@ -9,13 +9,13 @@ import UserProfileDiv from "../UserProfileDiv/UserProfileDiv";
 class UserProfile extends React.Component {
     state = {};
     
-    componentDidMount() {
+    componentDidMount = async () => {
         let loggedUser = 1; // [TBC]
         if(this.props.match.params.id){
             loggedUser = this.props.match.params.id
         };
 
-        axios
+        await axios
             .get(`http://localhost:5000/user/${loggedUser}`)
             .then((response) => {
                 this.setState(response.data);
