@@ -24,6 +24,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 
 class App extends React.Component {
   state = {
+    loggedUser: false,
     users: {},
     posts: {},
     loading: true
@@ -36,7 +37,7 @@ class App extends React.Component {
       <Switch>
         <Route path="/" exact component={Visitor} />
         
-        <Route path="/feed" exact component={Feed} render={(this.state)} />
+        <Route path="/feed" exact component={Feed} />
         <Route path="/posts/:id/edit" exact component={AddEditPost} />
         
         <Route path="/search" exact component={Search} />
