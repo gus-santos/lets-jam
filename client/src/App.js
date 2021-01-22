@@ -1,3 +1,5 @@
+import React from "react";
+
 import "./styles/App.css";
 
 import Nav from "./components/Nav/Nav";
@@ -20,7 +22,15 @@ import BSOD from "./pages/BSOD/BSOD";
 
 import { Switch, Route, Redirect } from "react-router-dom";
 
-function App() {
+class App extends React.Component {
+  state = {
+    loggedUser: false,
+    users: {},
+    posts: {},
+    loading: true
+  }
+
+  render() {
   return (
     <div className="App">
       <Nav />
@@ -48,6 +58,7 @@ function App() {
       </Switch>
     </div>
   );
+  }
 }
 
 export default App;

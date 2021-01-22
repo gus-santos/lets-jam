@@ -78,13 +78,13 @@ class AddEditUser extends React.Component {
         });
     };
 
-    handleClick = () => {
+    handleClick = async () => {
         if (this.props.match.path === "/user/:id/edit") {
-            axios
+            await axios
                 .put(`http://localhost:5000/user/${this.state.id}`, this.state)
                 .then(alert("User has been updated"));
         } else if (this.props.match.path === "/add-user") {
-            axios
+            await axios
                 .post('http://localhost:5000/user/', this.state)
                 .then(alert("User has been added"));
         }
@@ -99,8 +99,8 @@ class AddEditUser extends React.Component {
             .substr(0, 10);
     }
 
-    componentDidMount() {
-        axios
+    componentDidMount = async () => {
+        await axios
             .get(`http://localhost:5000/user/${this.props.match.params.id}`)
             .then((response) => {
                 this.setState(response.data);

@@ -4,26 +4,26 @@ import axios from 'axios';
 import Button from '../Button/Button';
 
 class AddEditPost extends React.Component {
-    state = {};
-
     loggedUser = 1; // [TBC]
 
     updateContent = event => {
         this.setState({
-            author: this.loggedUser,
-            content: event.target.value
+            posts: {
+                author: this.loggedUser,
+                content: event.target.value
+            }
         });
     };
 
-    handleClick = () => {
+    handleClick = async () => {
         /*if (this.props.match.path === "/posts/:id/edit") {
-            axios
-                .put(`http://localhost:5000/posts/${this.state.id}`, this.state)
+            await axios
+                .put(`http://localhost:5000/posts/${this.props.id}`, this.props)
                 .then(alert("Post has been updated"))
             ;
         } else {*/
-            axios
-                .post('http://localhost:5000/posts/', this.state) // kinda jumpy
+            await axios
+                .post('http://localhost:5000/posts/', this.state.posts) // kinda jumpy
                 //.then(alert("Post has been added"))
             ;
         //}
@@ -50,7 +50,7 @@ class AddEditPost extends React.Component {
                             className="add-edit__post-content"
                             type="text"
                             name="about"
-                            defaultValue={this.state.content}
+                            defaultValue={this.props.content}
                             onChange={this.updateContent}
                         ></textarea>
                     </label>
