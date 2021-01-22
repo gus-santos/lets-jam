@@ -42,7 +42,7 @@ class Post extends React.Component {
                                 : "")
                             }
                         </p>
-                        {/* I didn't mean for it to be a counter but hey, it works for now */}
+                        {/* I didn't mean for it to be a seconds counter but hey, it works */}
                         <p className="post__date">
                             <TimeAgo date={new Date(this.props.updatedAt).toString()} />
                         </p>
