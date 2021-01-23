@@ -29,9 +29,9 @@ class AddEditPost extends React.Component {
         //}
     }
 
-    /*componentDidMount() {
+    /*componentDidMount = async () => {
         if (this.props.match.params.id) {
-            axios
+            await axios
                 .get(`http://localhost:5000/posts/${this.props.match.params.id}`)
                 .then((response) => {
                     this.setState(response.data);

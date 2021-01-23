@@ -27,7 +27,8 @@ class App extends React.Component {
     loggedUser: false,
     users: {},
     posts: {},
-    loading: true
+    loading: true,
+    hasError: false
   }
 
   render() {
@@ -45,7 +46,7 @@ class App extends React.Component {
         <Route path="/add-user" exact component={AddEditUser} />
         <Route path="/user" exact component={UserProfile} />
         <Route path="/user/:id" exact component={UserProfile} />
-        <Route path="/user/:id/edit" component={AddEditUser} />
+        <Route path="/user/:id/edit" exact component={AddEditUser} />
         
         <Route path="/mental-health" exact component={MentalHealth} />
         <Route path="/settings" exact component={Settings} />
