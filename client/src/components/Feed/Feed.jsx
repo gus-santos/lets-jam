@@ -3,6 +3,7 @@
 import React from "react";
 import axios from "axios";
 import Post from "../Post/Post";
+import AddEditPost from "../AddEditPost/AddEditPost";
 
 class Feed extends React.Component {
     state = {
@@ -11,8 +12,8 @@ class Feed extends React.Component {
 
     loggedUser = 0; // [TBC] Set to 0 to show all posts (it's filtered below)
 
-    componentDidMount() {
-        axios
+    componentDidMount = async () => {
+        await axios
             .get(`http://localhost:5000/posts`)
             .then((response) => {
                 this.setState({
@@ -30,6 +31,8 @@ class Feed extends React.Component {
         return (
             
             <div className="feed__wrapper">
+                <AddEditPost />
+
                 {sortedPosts.length ? (
                 <div className="feed">
                     {sortedPosts

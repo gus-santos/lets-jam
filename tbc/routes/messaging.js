@@ -16,7 +16,7 @@ router.route('/').get((req, res) => {
 router.route('/').post((req, res) => {
   User.where('id', req.body.sender)
     .fetch()
-    .then((user) => console.log('User found'))
+    .then((user) => console.log(`User id ${req.body.sender} found`))
     .catch((user) => {
       res.status(404).json({ error: 'User not found' });
     });

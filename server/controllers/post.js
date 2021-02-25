@@ -14,7 +14,7 @@ function get(req, res) {
 function post(req, res) {
   User.where('id', req.body.author)
   .fetch()
-  .then(() => console.log('User found'))
+  .then(() => console.log(`User id ${req.body.author} found`))
   .catch(() => {
     res.status(404).json({ error: 'User not found. Please provide valid id' });
   });
@@ -44,7 +44,7 @@ function update(req, res) {
   if (req.body.author) {
     User.where('id', req.body.author)
     .fetch()
-    .then(() => console.log('User found'))
+    .then(() => console.log(`User id ${req.body.author} found`))
     .catch(() => {
       res.status(404).json({ error: 'User has not been found. Please provide a valid id'});
     });

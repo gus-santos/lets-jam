@@ -4,48 +4,54 @@ import axios from 'axios';
 import Button from '../Button/Button';
 
 class AddEditPost extends React.Component {
-    state = {};
-
     loggedUser = 1; // [TBC]
 
     updateContent = event => {
+        // event.preventDefault();
         this.setState({
-            author: this.loggedUser,
-            content: event.target.value
+            posts: {
+                author: this.loggedUser,
+                content: event.target.value
+            }
         });
     };
 
-    handleClick = () => {
-        if (this.props.match.path === "/posts/:id/edit") {
-            axios
-                .put(`http://localhost:5000/posts/${this.state.id}`, this.state)
-                .then(alert("Post has been updated"));
-        } else if (this.props.match.path === "/add-post") {
-            axios
-                .post('http://localhost:5000/posts/', this.state)
-                .then(alert("Post has been added"));
-        }
+    handleClick = async () => {
+        /*if (this.props.match.path === "/posts/:id/edit") {
+            await axios
+                .put(`http://localhost:5000/posts/${this.props.id}`, this.props)
+                .then(alert("Post has been updated"))
+            ;
+        } else {*/
+            await axios
+                .post('http://localhost:5000/posts/', this.state.posts) // kinda jumpy
+                //.then(alert("Post has been added"))
+            ;
+        //}
     }
 
-    componentDidMount() {
-        axios
-            .get(`http://localhost:5000/posts/${this.props.match.params.id}`)
-            .then((response) => {
-                this.setState(response.data);
-            });
-    }
+    /*componentDidMount = async () => {
+        if (this.props.match.params.id) {
+            await axios
+                .get(`http://localhost:5000/posts/${this.props.match.params.id}`)
+                .then((response) => {
+                    this.setState(response.data);
+                })
+            ;
+        }
+    }*/
 
     render() {
         return (
             <form className="add-edit">
-                <article>
+                <section className="add-edit__speak-up">
                     <label className="add-edit__label add-edit__label--post field-row-stacked">
                         Speak up&nbsp;
                         <textarea
-                            className="add-edit__speak-up"
+                            className="add-edit__post-content"
                             type="text"
                             name="about"
-                            defaultValue={this.state.content}
+                            defaultValue={this.props.content}
                             onChange={this.updateContent}
                         ></textarea>
                     </label>
@@ -56,7 +62,7 @@ class AddEditPost extends React.Component {
                             onClick={this.handleClick}
                         />
                     </div>
-                </article>
+                </section>
             </form>
         );
     }

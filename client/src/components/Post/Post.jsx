@@ -8,8 +8,8 @@ class Post extends React.Component {
 
     // [Q] I wanted to destructure props but I can't declare a variable in a class function?
 
-    componentDidMount() {
-        axios
+    componentDidMount = async () => {
+        await axios
             .get(`http://localhost:5000/user/${this.props.author}`)
             .then((response) => {
                 this.setState(response.data);
@@ -42,8 +42,9 @@ class Post extends React.Component {
                                 : "")
                             }
                         </p>
+                        {/* I didn't mean for it to be a seconds counter but hey, it works */}
                         <p className="post__date">
-                            <TimeAgo date={new Date(this.props.updatedAt).toLocaleDateString()} />
+                            <TimeAgo date={new Date(this.props.updatedAt).toString()} />
                         </p>
                     </div>
                 </div>

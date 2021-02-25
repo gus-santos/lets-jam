@@ -1,123 +1,63 @@
-import React from "react";
-import axios from 'axios';
+import React, { Component } from "react";
+import axios from "axios";
+import Button from "../Button/Button";
 
-import Button from '../Button/Button';
+class AddEditUser extends Component {
+    constructor() {
+        super();
+        this.state = {
 
-class AddEditUser extends React.Component {
-    state = {};
+        };
 
-    updateEmail = event => {
-        this.setState({
-            email: event.target.value
-        });
-    };
+        this.onInputChange = this.onInputChange.bind(this);
+        this.onSubmitForm = this.onSubmitForm.bind(this);
+    }
 
-    updateScreenName = event => {
+    onInputChange(event) {
+        event.preventDefault();
         this.setState({
-            screenName: event.target.value
+            [event.target.name]: event.target.value
         });
-    };
-    
-    updateType = event => {
-        this.setState({
-            type: event.target.value
-        });
-    };
-    
-    updateHealthSettings = event => {
-        this.setState({
-            healthSettings: event.target.value
-        });
-    };
-    
-    updateAbout = event => {
-        this.setState({
-            about: event.target.value
-        });
-    };
-    
-    updateFirstName = event => {
-        this.setState({
-            firstName: event.target.value
-        });
-    };
-    
-    updateLastName = event => {
-        this.setState({
-            lastName: event.target.value
-        });
-    };
-    
-    updatePostalCode = event => {
-        this.setState({
-            postalCode: event.target.value
-        });
-    };
-    
-    updateFavouriteStudio = event => {
-        this.setState({
-            favouriteStudio: event.target.value
-        });
-    };
-    
-    updateSkills = event => {
-        this.setState({
-            skills: event.target.value
-        });
-    };
-    
-    updateInstruments = event => {
-        this.setState({
-            instruments: event.target.value
-        });
-    };
-    
-    updateLookingFor = event => {
-        this.setState({
-            lookingFor: event.target.value
-        });
-    };
+    }
 
-    handleClick = () => {
+    onSubmitForm = async () => {
         if (this.props.match.path === "/user/:id/edit") {
-            axios
+            await axios
                 .put(`http://localhost:5000/user/${this.state.id}`, this.state)
-                .then(alert("User has been updated"));
+                .then(alert("User has been updated"))
+            ;
         } else if (this.props.match.path === "/add-user") {
-            axios
+            await axios
                 .post('http://localhost:5000/user/', this.state)
-                .then(alert("User has been added"));
+                .then(alert("User has been added"))
+            ;
         }
     }
 
-    trimString = str => {
-        return str
-            .replace('(', '')
-            .replace(')', '')
-            .replace(' ', '')
-            .replace('-', '')
-            .substr(0, 10);
-    }
-
-    componentDidMount() {
-        axios
-            .get(`http://localhost:5000/user/${this.props.match.params.id}`)
-            .then((response) => {
-                this.setState(response.data);
-            });
+    componentDidMount = async () => {
+        if (this.props.match.params.id) {
+            await axios
+                .get(`http://localhost:5000/user/${this.props.match.params.id}`)
+                .then((response) => {
+                    this.setState(response.data);
+                })
+            ;
+        }
     }
 
     render() {
+        // const { items } = this.state;
+
         return (
             <form className="add-edit">
-                <article>
+                <section>
                     <label className="add-edit__label field-row-stacked">
                         E-mail:&nbsp;
                         <input
-                            type="text"
+                            type="email"
                             name="email"
                             defaultValue={this.state.email}
-                            onChange={this.updateEmail}
+                            onChange={this.onInputChange}
                         />
                     </label>
                     <label className="add-edit__label field-row-stacked">
@@ -126,12 +66,12 @@ class AddEditUser extends React.Component {
                             type="text"
                             name="postalCode"
                             defaultValue={this.state.postalCode}
-                            onChange={this.updatePostalCode}
+                            onChange={this.onInputChange}
                         />
                     </label>
                     <label className="add-edit__label field-row-stacked">
                         Artist or band:&nbsp;
-                        <select name="type" value={this.state.value} onChange={this.updateType}>
+                        <select name="type" value={this.state.type} onChange={this.onInputChange}>
                             <option value="artist">Artist</option>
                             <option value="band">Band</option>
                         </select>
@@ -142,7 +82,7 @@ class AddEditUser extends React.Component {
                             type="text"
                             name="screenName"
                             defaultValue={this.state.screenName}
-                            onChange={this.updateScreenName}
+                            onChange={this.onInputChange}
                         />
                     </label>
                     <label className="add-edit__label field-row-stacked">
@@ -151,7 +91,7 @@ class AddEditUser extends React.Component {
                             type="text"
                             name="about"
                             defaultValue={this.state.about}
-                            onChange={this.updateAbout}
+                            onChange={this.onInputChange}
                         ></textarea>
                     </label>
                     <label className="add-edit__label field-row-stacked">
@@ -160,7 +100,7 @@ class AddEditUser extends React.Component {
                             type="text"
                             name="firstName"
                             defaultValue={this.state.firstName}
-                            onChange={this.updateFirstName}
+                            onChange={this.onInputChange}
                         />
                     </label>
                     <label className="add-edit__label field-row-stacked">
@@ -169,16 +109,7 @@ class AddEditUser extends React.Component {
                             type="text"
                             name="lastName"
                             defaultValue={this.state.lastName}
-                            onChange={this.updateLastName}
-                        />
-                    </label>
-                    <label className="add-edit__label field-row-stacked">
-                        Postal code:&nbsp;
-                        <input
-                            type="text"
-                            name="postalCode"
-                            defaultValue={this.state.postalCode}
-                            onChange={this.updatePostalCode}
+                            onChange={this.onInputChange}
                         />
                     </label>
                     {
@@ -189,7 +120,7 @@ class AddEditUser extends React.Component {
                                     type="text"
                                     name="lookingFor"
                                     defaultValue={this.state.lookingFor}
-                                    onChange={this.updateLookingFor}
+                                    onChange={this.onInputChange}
                                 />
                             </label>
                             : <label className="add-edit__label field-row-stacked">
@@ -198,7 +129,7 @@ class AddEditUser extends React.Component {
                                     type="text"
                                     name="skills"
                                     defaultValue={this.state.skills}
-                                    onChange={this.updateSkills}
+                                    onChange={this.onInputChange}
                                 />
                             </label>
                     }
@@ -206,12 +137,12 @@ class AddEditUser extends React.Component {
                         <Button
                             type="submit"
                             label="Submit"
-                            onClick={this.handleClick}
+                            onClick={this.onSubmitForm}
                         />
                     </div>
-                </article>
+                </section>
             </form>
-        );
+        )
     }
 }
 

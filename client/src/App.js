@@ -1,3 +1,5 @@
+import React from "react";
+
 import "./styles/App.css";
 
 import Nav from "./components/Nav/Nav";
@@ -20,7 +22,14 @@ import BSOD from "./pages/BSOD/BSOD";
 
 import { Switch, Route, Redirect } from "react-router-dom";
 
-function App() {
+class App extends React.Component {
+  state = {
+    loggedUser: 0,
+    loading: true,
+    hasError: false
+  }
+
+  render() {
   return (
     <div className="App">
       <Nav />
@@ -28,7 +37,6 @@ function App() {
         <Route path="/" exact component={Visitor} />
         
         <Route path="/feed" exact component={Feed} />
-        <Route path="/add-post" exact component={AddEditPost} />
         <Route path="/posts/:id/edit" exact component={AddEditPost} />
         
         <Route path="/search" exact component={Search} />
@@ -36,7 +44,7 @@ function App() {
         <Route path="/add-user" exact component={AddEditUser} />
         <Route path="/user" exact component={UserProfile} />
         <Route path="/user/:id" exact component={UserProfile} />
-        <Route path="/user/:id/edit" component={AddEditUser} />
+        <Route path="/user/:id/edit" exact component={AddEditUser} />
         
         <Route path="/mental-health" exact component={MentalHealth} />
         <Route path="/settings" exact component={Settings} />
@@ -49,6 +57,7 @@ function App() {
       </Switch>
     </div>
   );
+  }
 }
 
 export default App;

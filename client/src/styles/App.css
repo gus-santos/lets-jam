@@ -22,37 +22,63 @@ li {
   list-style-type: none;
 }
 
-.mental-health, .mental-health__card-wrapper, .mental-health__card, .menu__link-wrapper, .nav__list, .post__heading, .post__name-wrapper, .add-edit__button-wrapper, .user-profile {
+.add-edit__button-wrapper, .menu__link-wrapper, .nav__list, .post__heading, .post__name-wrapper, .user-profile, .mental-health, .mental-health__card-wrapper, .mental-health__card {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.bsod {
-  height: 100vh;
-  width: 100vw;
-  padding: 10% 30%;
-  display: inline;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #0012A3;
+.add-edit {
+  padding: 1.5rem 0;
 }
 
-.bsod__title {
-  height: 1.5rem;
-  width: 15rem;
-  margin: 0 auto;
-  font-size: 1.25rem;
-  background-color: lightgray;
-  display: block;
-  color: #0012A3;
-  text-align: center;
+.add-edit input {
+  height: 1.75rem;
 }
 
-.bsod__text, .bsod__item {
+.add-edit input, .add-edit textarea {
+  width: 40vw;
+}
+
+.add-edit label, .add-edit input, .add-edit textarea {
   font-size: 1rem;
+}
+
+.add-edit article {
+  width: 45vw;
+  margin: 0 auto;
+}
+
+.add-edit__button-wrapper {
+  padding: 1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.add-edit__label--horizontal {
+  padding: 1rem 2rem 0 1rem;
+}
+
+.add-edit__label--post {
+  padding-top: 1rem;
+}
+
+.add-edit__label input, .add-edit__label textarea {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.add-edit__speak-up {
+  width: 50%;
+  margin: 0 auto;
+}
+
+textarea.add-edit__post-content {
+  height: 6rem;
+  width: 90%;
+  resize: none;
 }
 
 .button::first-letter {
@@ -61,69 +87,6 @@ li {
 
 .feed {
   padding: 1rem;
-}
-
-.mental-health {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.mental-health__info {
-  font-size: 1rem;
-}
-
-.mental-health__title {
-  margin-bottom: 0;
-}
-
-.mental-health__link {
-  margin: 0;
-  padding: 0;
-}
-
-.mental-health__disclaimer {
-  font-size: 1.5rem;
-}
-
-.mental-health__section-title {
-  -webkit-margin-before: 1rem;
-          margin-block-start: 1rem;
-  -webkit-margin-after: 0;
-          margin-block-end: 0;
-}
-
-.mental-health__card-wrapper {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.mental-health__card {
-  width: 15rem;
-  margin: 1rem;
-  padding: 1rem;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.mental-health__card-title {
-  font-size: 1.5rem;
-  white-space: pre-wrap;
 }
 
 .menu {
@@ -239,51 +202,6 @@ li {
   white-space: pre-wrap;
 }
 
-.add-edit {
-  padding: 1.5rem 0;
-}
-
-.add-edit input {
-  height: 1.75rem;
-}
-
-.add-edit input, .add-edit textarea {
-  width: 40vw;
-}
-
-.add-edit label, .add-edit input, .add-edit textarea {
-  font-size: 1rem;
-}
-
-.add-edit article {
-  width: 45vw;
-  margin: 0 auto;
-}
-
-.add-edit__button-wrapper {
-  padding: 1rem;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.add-edit__label--horizontal {
-  padding: 1rem 2rem 0 1rem;
-}
-
-.add-edit__label--post {
-  padding-top: 1rem;
-}
-
-.add-edit__label input, .add-edit__label textarea {
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.add-edit__speak-up {
-  height: 40vh;
-}
-
 .user-profile {
   padding: 1rem;
 }
@@ -315,6 +233,97 @@ li {
   color: red;
 }
 
+.bsod {
+  height: 100vh;
+  width: 100vw;
+  padding: 10% 30%;
+  display: inline;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #0012A3;
+}
+
+.bsod__title {
+  height: 1.5rem;
+  width: 15rem;
+  margin: 0 auto;
+  font-size: 1.25rem;
+  background-color: lightgray;
+  display: block;
+  color: #0012A3;
+  text-align: center;
+}
+
+.bsod__text, .bsod__item {
+  font-size: 1rem;
+}
+
+.mental-health {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mental-health__info {
+  font-size: 1rem;
+}
+
+.mental-health__title {
+  margin-bottom: 0;
+}
+
+.mental-health__link {
+  margin: 0;
+  padding: 0;
+}
+
+.mental-health__disclaimer {
+  font-size: 1.5rem;
+}
+
+.mental-health__section-title {
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+  margin-right: auto;
+}
+
+.mental-health__card-wrapper {
+  padding: 0 3rem;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.mental-health__card {
+  width: 15rem;
+  margin: 1rem;
+  padding: 1rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mental-health__card-title {
+  font-size: 1.5rem;
+  white-space: pre-wrap;
+}
+
 .visitor {
   padding: 1rem;
   white-space: pre-wrap;
@@ -329,7 +338,7 @@ li {
   text-decoration: underline;
 }
 
-article {
+article, section {
   border: none;
   -webkit-box-shadow: inset -0.0625rem -0.0625rem #fff, inset 0.0625rem 0.0625rem #0a0a0a, inset -0.125rem -0.125rem grey, inset 0.125rem 0.125rem #dfdfdf;
           box-shadow: inset -0.0625rem -0.0625rem #fff, inset 0.0625rem 0.0625rem #0a0a0a, inset -0.125rem -0.125rem grey, inset 0.125rem 0.125rem #dfdfdf;
