@@ -7,6 +7,7 @@ class AddEditPost extends React.Component {
     loggedUser = 1; // [TBC]
 
     updateContent = event => {
+        // event.preventDefault();
         this.setState({
             posts: {
                 author: this.loggedUser,
@@ -29,9 +30,9 @@ class AddEditPost extends React.Component {
         //}
     }
 
-    /*componentDidMount() {
+    /*componentDidMount = async () => {
         if (this.props.match.params.id) {
-            axios
+            await axios
                 .get(`http://localhost:5000/posts/${this.props.match.params.id}`)
                 .then((response) => {
                     this.setState(response.data);
