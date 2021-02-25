@@ -24,9 +24,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 
 class App extends React.Component {
   state = {
-    loggedUser: false,
-    users: {},
-    posts: {},
+    loggedUser: 0,
     loading: true,
     hasError: false
   }

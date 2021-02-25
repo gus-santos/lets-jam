@@ -7,6 +7,7 @@ class AddEditPost extends React.Component {
     loggedUser = 1; // [TBC]
 
     updateContent = event => {
+        // event.preventDefault();
         this.setState({
             posts: {
                 author: this.loggedUser,

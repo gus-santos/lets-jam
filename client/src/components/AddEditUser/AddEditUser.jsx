@@ -1,146 +1,63 @@
-import React from "react";
-import axios from 'axios';
+import React, { Component } from "react";
+import axios from "axios";
+import Button from "../Button/Button";
 
-import Button from '../Button/Button';
+class AddEditUser extends Component {
+    constructor() {
+        super();
+        this.state = {
 
-// [Q] Hate how I'm repeating myself here
-class AddEditUser extends React.Component {
-    updateEmail = event => {
-        this.setState({
-            users: {
-                email: event.target.value
-            }
-        });
-    };
+        };
 
-    updateScreenName = event => {
-        this.setState({
-            users: {
-                screenName: event.target.value
-            }
-        });
-    };
-    
-    updateType = event => {
-        this.setState({
-            users: {
-                type: event.target.value
-            }
-        });
-    };
-    
-    updateHealthSettings = event => {
-        this.setState({
-            users: {
-                healthSettings: event.target.value
-            }
-        });
-    };
-    
-    updateAbout = event => {
-        this.setState({
-            users: {
-                about: event.target.value
-            }
-        });
-    };
-    
-    updateFirstName = event => {
-        this.setState({
-            users: {
-                firstName: event.target.value
-            }
-        });
-    };
-    
-    updateLastName = event => {
-        this.setState({
-            users: {
-                lastName: event.target.value
-            }
-        });
-    };
-    
-    updatePostalCode = event => {
-        this.setState({
-            users: {
-                postalCode: event.target.value
-            }
-        });
-    };
-    
-    updateFavouriteStudio = event => {
-        this.setState({
-            users: {
-                favouriteStudio: event.target.value
-            }
-        });
-    };
-    
-    updateSkills = event => {
-        this.setState({
-            users: {
-                skills: event.target.value
-            }
-        });
-    };
-    
-    updateInstruments = event => {
-        this.setState({
-            users: {
-                instruments: event.target.value
-            }
-        });
-    };
-    
-    updateLookingFor = event => {
-        this.setState({
-            users: {
-                lookingFor: event.target.value
-            }
-        });
-    };
+        this.onInputChange = this.onInputChange.bind(this);
+        this.onSubmitForm = this.onSubmitForm.bind(this);
+    }
 
-    handleClick = async () => {
+    onInputChange(event) {
+        event.preventDefault();
+        this.setState({
+            [event.target.name]: event.target.value
+        });
+    }
+
+    onSubmitForm = async () => {
         if (this.props.match.path === "/user/:id/edit") {
             await axios
-                .put(`http://localhost:5000/user/${this.state.users.id}`, this.state.users)
+                .put(`http://localhost:5000/user/${this.state.id}`, this.state)
                 .then(alert("User has been updated"))
             ;
         } else if (this.props.match.path === "/add-user") {
             await axios
-                .post('http://localhost:5000/user/', this.state.users)
+                .post('http://localhost:5000/user/', this.state)
                 .then(alert("User has been added"))
             ;
         }
     }
 
     componentDidMount = async () => {
-        let users;
         if (this.props.match.params.id) {
             await axios
                 .get(`http://localhost:5000/user/${this.props.match.params.id}`)
                 .then((response) => {
-                    this.setState({
-                        users: response.data
-                    });
-                    console.log(this.state.users);
+                    this.setState(response.data);
                 })
             ;
         }
     }
 
     render() {
+        // const { items } = this.state;
+
         return (
             <form className="add-edit">
                 <section>
                     <label className="add-edit__label field-row-stacked">
                         E-mail:&nbsp;
                         <input
-                            type="text"
+                            type="email"
                             name="email"
-                            defaultValue={this.props.email}
-                            onChange={this.updateEmail}
+                            defaultValue={this.state.email}
+                            onChange={this.onInputChange}
                         />
                     </label>
                     <label className="add-edit__label field-row-stacked">
@@ -148,13 +65,13 @@ class AddEditUser extends React.Component {
                         <input
                             type="text"
                             name="postalCode"
-                            defaultValue={this.props.postalCode}
-                            onChange={this.updatePostalCode}
+                            defaultValue={this.state.postalCode}
+                            onChange={this.onInputChange}
                         />
                     </label>
                     <label className="add-edit__label field-row-stacked">
                         Artist or band:&nbsp;
-                        <select name="type" value={this.props.value} onChange={this.updateType}>
+                        <select name="type" value={this.state.type} onChange={this.onInputChange}>
                             <option value="artist">Artist</option>
                             <option value="band">Band</option>
                         </select>
@@ -164,8 +81,8 @@ class AddEditUser extends React.Component {
                         <input
                             type="text"
                             name="screenName"
-                            defaultValue={this.props.screenName}
-                            onChange={this.updateScreenName}
+                            defaultValue={this.state.screenName}
+                            onChange={this.onInputChange}
                         />
                     </label>
                     <label className="add-edit__label field-row-stacked">
@@ -173,8 +90,8 @@ class AddEditUser extends React.Component {
                         <textarea
                             type="text"
                             name="about"
-                            defaultValue={this.props.about}
-                            onChange={this.updateAbout}
+                            defaultValue={this.state.about}
+                            onChange={this.onInputChange}
                         ></textarea>
                     </label>
                     <label className="add-edit__label field-row-stacked">
@@ -182,8 +99,8 @@ class AddEditUser extends React.Component {
                         <input
                             type="text"
                             name="firstName"
-                            defaultValue={this.props.firstName}
-                            onChange={this.updateFirstName}
+                            defaultValue={this.state.firstName}
+                            onChange={this.onInputChange}
                         />
                     </label>
                     <label className="add-edit__label field-row-stacked">
@@ -191,19 +108,19 @@ class AddEditUser extends React.Component {
                         <input
                             type="text"
                             name="lastName"
-                            defaultValue={this.props.lastName}
-                            onChange={this.updateLastName}
+                            defaultValue={this.state.lastName}
+                            onChange={this.onInputChange}
                         />
                     </label>
                     {
-                        this.props.type === "band"
+                        this.state.type === "band"
                             ? <label className="add-edit__label field-row-stacked">
                                 Looking for:&nbsp;
                                 <input
                                     type="text"
                                     name="lookingFor"
-                                    defaultValue={this.props.lookingFor}
-                                    onChange={this.updateLookingFor}
+                                    defaultValue={this.state.lookingFor}
+                                    onChange={this.onInputChange}
                                 />
                             </label>
                             : <label className="add-edit__label field-row-stacked">
@@ -211,8 +128,8 @@ class AddEditUser extends React.Component {
                                 <input
                                     type="text"
                                     name="skills"
-                                    defaultValue={this.props.skills}
-                                    onChange={this.updateSkills}
+                                    defaultValue={this.state.skills}
+                                    onChange={this.onInputChange}
                                 />
                             </label>
                     }
@@ -220,12 +137,12 @@ class AddEditUser extends React.Component {
                         <Button
                             type="submit"
                             label="Submit"
-                            onClick={this.handleClick}
+                            onClick={this.onSubmitForm}
                         />
                     </div>
                 </section>
             </form>
-        );
+        )
     }
 }
 
