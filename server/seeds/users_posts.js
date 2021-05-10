@@ -20,7 +20,7 @@ exports.seed = function(knex) {
           return authors;
         });
     })
-    .then((authors) => { // [Q] Write author IDs in JSON
+    .then((authors) => {
       const postDataItem = postData.map((post) => {
         return post;
       });
