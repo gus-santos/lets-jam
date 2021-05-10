@@ -5,9 +5,7 @@ import Button from "../Button/Button";
 class AddEditUser extends Component {
     constructor() {
         super();
-        this.state = {
-
-        };
+        this.state = {};
 
         this.onInputChange = this.onInputChange.bind(this);
         this.onSubmitForm = this.onSubmitForm.bind(this);
@@ -46,8 +44,7 @@ class AddEditUser extends Component {
     }
 
     render() {
-        // const { items } = this.state;
-
+        console.log(this.props);
         return (
             <form className="add-edit">
                 <section>
